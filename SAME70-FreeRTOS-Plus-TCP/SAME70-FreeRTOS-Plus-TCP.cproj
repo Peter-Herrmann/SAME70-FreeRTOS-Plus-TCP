@@ -462,6 +462,15 @@
       <Value>../src/ASF/sam/drivers/matrix</Value>
       <Value>../src</Value>
       <Value>../src/config</Value>
+      <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/source/portable/NetworkInterface/DriverSAM</Value>
+      <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/source/portable/NetworkInterface/include</Value>
+      <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/source/portable/Compiler/GCC</Value>
+      <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/source/protocols/include</Value>
+      <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/include</Value>
+      <Value>../src/FreeRTOS/Utilities</Value>
+      <Value>../src/FreeRTOS/Utilities/include</Value>
+      <Value>../src/FreeRTOS/FreeRTOS/Source/include</Value>
+      <Value>../src/FreeRTOS/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1</Value>
     </ListValues>
   </armgcc.compiler.directories.IncludePaths>
   <armgcc.compiler.optimization.level>Optimize (-O1)</armgcc.compiler.optimization.level>
@@ -482,6 +491,7 @@
     </ListValues>
   </armgcc.linker.libraries.LibrarySearchPaths>
   <armgcc.linker.optimization.GarbageCollectUnusedSections>True</armgcc.linker.optimization.GarbageCollectUnusedSections>
+  <armgcc.linker.memorysettings.ExternalRAM />
   <armgcc.linker.miscellaneous.LinkerFlags>-Wl,--entry=Reset_Handler -Wl,--cref -mthumb -T../src/ASF/sam/utils/linker_scripts/same70/same70q21/gcc/flash.ld</armgcc.linker.miscellaneous.LinkerFlags>
   <armgcc.assembler.general.IncludePaths>
     <ListValues>
@@ -512,6 +522,15 @@
       <Value>../src/ASF/sam/drivers/matrix</Value>
       <Value>../src</Value>
       <Value>../src/config</Value>
+      <Value>../src/FreeRTOS/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1</Value>
+      <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/source/portable/NetworkInterface/DriverSAM</Value>
+      <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/source/portable/NetworkInterface/include</Value>
+      <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/source/portable/Compiler/GCC</Value>
+      <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/source/protocols/include</Value>
+      <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/include</Value>
+      <Value>../src/FreeRTOS/Utilities</Value>
+      <Value>../src/FreeRTOS/Utilities/include</Value>
+      <Value>../src/FreeRTOS/FreeRTOS/Source/include</Value>
     </ListValues>
   </armgcc.assembler.general.IncludePaths>
   <armgcc.assembler.debugging.DebugLevel>Default (-g)</armgcc.assembler.debugging.DebugLevel>
@@ -606,6 +625,26 @@
     <Folder Include="src\ASF\thirdparty\CMSIS\Lib\" />
     <Folder Include="src\ASF\thirdparty\CMSIS\Lib\GCC\" />
     <Folder Include="src\config\" />
+    <Folder Include="src\FreeRTOS\" />
+    <Folder Include="src\FreeRTOS\FreeRTOS" />
+    <Folder Include="src\FreeRTOS\FreeRTOS\Source" />
+    <Folder Include="src\FreeRTOS\FreeRTOS\Source\include" />
+    <Folder Include="src\FreeRTOS\FreeRTOS\Source\portable" />
+    <Folder Include="src\FreeRTOS\FreeRTOS\Source\portable\GCC" />
+    <Folder Include="src\FreeRTOS\FreeRTOS\Source\portable\GCC\ARM_CM7" />
+    <Folder Include="src\FreeRTOS\FreeRTOS\Source\portable\GCC\ARM_CM7\r0p1" />
+    <Folder Include="src\FreeRTOS\FreeRTOS\Source\portable\MemMang" />
+    <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\" />
+    <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\" />
+    <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\" />
+    <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\portable\" />
+    <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\portable\BufferManagement\" />
+    <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\portable\Compiler\" />
+    <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\portable\Compiler\GCC\" />
+    <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\portable\NetworkInterface\" />
+    <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\portable\NetworkInterface\Common\" />
+    <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\portable\NetworkInterface\DriverSAM\" />
+    <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\portable\NetworkInterface\include\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="src\asf.h">
@@ -1218,6 +1257,177 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\config\FreeRTOSIPConfig.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS\Source\croutine.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS\Source\event_groups.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS\Source\include\croutine.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS\Source\include\deprecated_definitions.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS\Source\include\event_groups.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS\Source\include\FreeRTOS.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS\Source\include\list.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS\Source\include\message_buffer.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS\Source\include\mpu_wrappers.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS\Source\include\portable.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS\Source\include\projdefs.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS\Source\include\queue.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS\Source\include\semphr.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS\Source\include\stack_macros.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS\Source\include\stream_buffer.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS\Source\include\task.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS\Source\include\timers.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS\Source\list.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS\Source\portable\GCC\ARM_CM7\r0p1\port.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS\Source\portable\GCC\ARM_CM7\r0p1\portmacro.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS\Source\portable\MemMang\heap_4.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS\Source\queue.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS\Source\stream_buffer.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS\Source\tasks.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS\Source\timers.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOSIPConfigDefaults.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_ARP.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_DHCP.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_DNS.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_errno_TCP.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_IP.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_IP_Private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_Sockets.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_Stream_Buffer.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_TCP_IP.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_TCP_WIN.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_UDP_IP.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\IPTraceMacroDefaults.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\NetworkBufferManagement.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\NetworkInterface.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\FreeRTOS_ARP.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\FreeRTOS_DHCP.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\FreeRTOS_DNS.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\FreeRTOS_IP.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\FreeRTOS_Sockets.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\FreeRTOS_Stream_Buffer.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\FreeRTOS_TCP_IP.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\FreeRTOS_TCP_WIN.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\FreeRTOS_UDP_IP.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\portable\BufferManagement\BufferAllocation_2.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\portable\Compiler\GCC\pack_struct_end.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\portable\Compiler\GCC\pack_struct_start.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\portable\NetworkInterface\Common\phyHandling.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\portable\NetworkInterface\DriverSAM\gmac_SAM.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\portable\NetworkInterface\DriverSAM\gmac_SAM.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\portable\NetworkInterface\DriverSAM\NetworkInterface.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\portable\NetworkInterface\include\phyHandling.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\main.c">

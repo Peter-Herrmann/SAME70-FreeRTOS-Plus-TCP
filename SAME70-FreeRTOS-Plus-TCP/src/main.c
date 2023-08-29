@@ -163,10 +163,10 @@ static void ProcessButtonEvt(uint8_t uc_button)
  *  Increments the g_ul_ms_ticks counter.
  */
 // [main_systick_handler]
-void SysTick_Handler(void)
-{
-	g_ul_ms_ticks++;
-}
+//void SysTick_Handler(void)
+//{
+//	g_ul_ms_ticks++;
+//}
 // [main_systick_handler]
 
 /**
