@@ -50,3 +50,7 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+SAME70-FreeRTOS-Plus-TCP/Debug
+jlink.*
+.vs
