@@ -125,7 +125,6 @@ FreeRTOSConfig.h as configMINIMAL_STACK_SIZE is a user definable constant. */
 
 #if( __DCACHE_PRESENT != 0 ) && defined( CONF_BOARD_ENABLE_CACHE )
 	#include "core_cm7.h"
-	#warning This driver assumes the presence of DCACHE
 	#define		NETWORK_BUFFERS_CACHED							1
 	#define		CACHE_LINE_SIZE									32
 	#define		NETWORK_BUFFER_HEADER_SIZE						( ipconfigPACKET_FILLER_SIZE + 8 )

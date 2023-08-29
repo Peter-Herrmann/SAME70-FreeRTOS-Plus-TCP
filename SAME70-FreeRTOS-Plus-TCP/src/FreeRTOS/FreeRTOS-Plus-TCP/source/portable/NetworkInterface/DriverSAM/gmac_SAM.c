@@ -122,7 +122,6 @@ COMPILER_ALIGNED(8)
 static gmac_tx_descriptor_t gs_tx_desc[ GMAC_TX_BUFFERS ];
 
 #if( SAME70 != 0 )
-#warning Compiling for SAME70
 	__attribute__ ((section(".first_data")))
 	COMPILER_ALIGNED(8)
 	static gmac_tx_descriptor_t gs_tx_desc_null;
@@ -578,7 +577,6 @@ uint32_t gmac_dev_read(gmac_device_t* p_gmac_dev, uint8_t* p_frame,
 	bytesLeft = min( bytesLeft + 2, ( int32_t )ul_frame_size );
 
 #if( __DCACHE_PRESENT != 0 ) && defined( CONF_BOARD_ENABLE_CACHE )
-#warning Using cache
 	SCB_InvalidateDCache();
 #endif
 

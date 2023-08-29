@@ -11,8 +11,18 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-         
-#define SAME70 1
+
+#ifndef GMAC_USES_WAKEUP_CALLBACK
+    #define GMAC_USES_WAKEUP_CALLBACK (0)
+#endif
+
+#ifndef ipconfigDHCP_SEND_DISCOVER_AFTER_AUTO_IP
+    #define ipconfigDHCP_SEND_DISCOVER_AFTER_AUTO_IP (0)
+#endif
+
+#ifndef ipconfigUSE_LINKED_RX_MESSAGES
+    #define ipconfigUSE_LINKED_RX_MESSAGES (0)
+#endif
 
 /* The priority used by the Ethernet MAC driver interrupt. */
 #define configMAC_INTERRUPT_PRIORITY		( configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY )
