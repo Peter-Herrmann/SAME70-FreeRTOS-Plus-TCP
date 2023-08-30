@@ -460,10 +460,10 @@
             <Value>../src/ASF/sam/drivers/matrix</Value>
             <Value>../src</Value>
             <Value>../src/config</Value>
-            <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/source/portable/NetworkInterface/DriverSAM</Value>
-            <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/source/portable/NetworkInterface/include</Value>
-            <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/source/portable/Compiler/GCC</Value>
-            <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/source/protocols/include</Value>
+            <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/portable/NetworkInterface/DriverSAM</Value>
+            <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/portable/NetworkInterface/include</Value>
+            <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/portable/Compiler/GCC</Value>
+            <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/protocols/include</Value>
             <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/include</Value>
             <Value>../src/FreeRTOS/Utilities</Value>
             <Value>../src/FreeRTOS/Utilities/include</Value>
@@ -522,10 +522,10 @@
             <Value>../src</Value>
             <Value>../src/config</Value>
             <Value>../src/FreeRTOS/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1</Value>
-            <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/source/portable/NetworkInterface/DriverSAM</Value>
-            <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/source/portable/NetworkInterface/include</Value>
-            <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/source/portable/Compiler/GCC</Value>
-            <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/source/protocols/include</Value>
+            <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/portable/NetworkInterface/DriverSAM</Value>
+            <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/portable/NetworkInterface/include</Value>
+            <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/portable/Compiler/GCC</Value>
+            <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/protocols/include</Value>
             <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/include</Value>
             <Value>../src/FreeRTOS/Utilities</Value>
             <Value>../src/FreeRTOS/Utilities/include</Value>
@@ -626,15 +626,15 @@
     <Folder Include="src\FreeRTOS\FreeRTOS" />
     <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\" />
     <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\" />
-    <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\" />
-    <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\portable\" />
-    <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\portable\BufferManagement\" />
-    <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\portable\Compiler\" />
-    <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\portable\Compiler\GCC\" />
-    <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\portable\NetworkInterface\" />
-    <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\portable\NetworkInterface\Common\" />
-    <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\portable\NetworkInterface\DriverSAM\" />
-    <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\portable\NetworkInterface\include\" />
+    <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\" />
+    <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\portable\" />
+    <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\portable\BufferManagement\" />
+    <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\portable\Compiler\" />
+    <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\portable\Compiler\GCC\" />
+    <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\portable\NetworkInterface\" />
+    <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\portable\NetworkInterface\Common\" />
+    <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\portable\NetworkInterface\DriverSAM\" />
+    <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\portable\NetworkInterface\include\" />
     <Folder Include="src\app" />
     <Folder Include="src\app\include" />
     <Folder Include="src\FreeRTOS\FreeRTOS\Source\" />
@@ -1393,55 +1393,55 @@
     <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\NetworkInterface.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\FreeRTOS_ARP.c">
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\FreeRTOS_ARP.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\FreeRTOS_DHCP.c">
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\FreeRTOS_DHCP.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\FreeRTOS_DNS.c">
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\FreeRTOS_DNS.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\FreeRTOS_IP.c">
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\FreeRTOS_IP.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\FreeRTOS_Sockets.c">
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\FreeRTOS_Sockets.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\FreeRTOS_Stream_Buffer.c">
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\FreeRTOS_Stream_Buffer.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\FreeRTOS_TCP_IP.c">
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\FreeRTOS_TCP_IP.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\FreeRTOS_TCP_WIN.c">
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\FreeRTOS_TCP_WIN.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\FreeRTOS_UDP_IP.c">
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\FreeRTOS_UDP_IP.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\portable\BufferManagement\BufferAllocation_2.c">
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\portable\BufferManagement\BufferAllocation_2.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\portable\Compiler\GCC\pack_struct_end.h">
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_end.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\portable\Compiler\GCC\pack_struct_start.h">
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\portable\Compiler\GCC\pack_struct_start.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\portable\NetworkInterface\Common\phyHandling.c">
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\portable\NetworkInterface\Common\phyHandling.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\portable\NetworkInterface\DriverSAM\gmac_SAM.c">
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\portable\NetworkInterface\DriverSAM\gmac_SAM.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\portable\NetworkInterface\DriverSAM\gmac_SAM.h">
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\portable\NetworkInterface\DriverSAM\gmac_SAM.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\portable\NetworkInterface\DriverSAM\NetworkInterface.c">
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\portable\NetworkInterface\DriverSAM\NetworkInterface.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\source\portable\NetworkInterface\include\phyHandling.h">
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\portable\NetworkInterface\include\phyHandling.h">
       <SubType>compile</SubType>
     </Compile>
     <None Include="src\ASF\thirdparty\CMSIS\Lib\GCC\libarm_cortexM7lfsp_math.a">
