@@ -136,15 +136,15 @@ extern void vApplicationTickHook(void) { /*  */ }
 
 
 
-#define LED_STAT    IOPORT_CREATE_PIN(PIOA , 22)
+#define LED_STAT    IOPORT_CREATE_PIN(PIOC , 8)
 static void task_led(void *pvParameters)
 {
     UNUSED(pvParameters);
     ioport_set_pin_dir(LED_STAT, IOPORT_DIR_OUTPUT);
-    for (;;) {
-    
+    for (;;) 
+	{
         ioport_toggle_pin_level(LED_STAT);
-    
+		//printf(" .");
         vTaskDelay(100);
     }
 }
@@ -365,16 +365,20 @@ void vApplicationIPNetworkEventHook( eIPCallbackEvent_t eNetworkEvent )
         server. */
         FreeRTOS_GetAddressConfiguration( &ulIPAddress, &ulNetMask, &ulGatewayAddress, &ulDNSServerAddress );
         FreeRTOS_inet_ntoa( ulIPAddress, cBuffer );
-        printf( ( "IP Address: %s\n", cBuffer ) );
+        printf("\r\nIP Address: ");
+        printf("%s", cBuffer);
 
         FreeRTOS_inet_ntoa( ulNetMask, cBuffer );
-        printf( ( "Subnet Mask: %s\n", cBuffer ) );
+        printf("\r\nSubnet Mask: ");
+        printf("%s", cBuffer);
 
         FreeRTOS_inet_ntoa( ulGatewayAddress, cBuffer );
-        printf( ( "Gateway Address: %s\n", cBuffer ) );
+        printf("\r\nGateway Address: ");
+        printf("%s", cBuffer);
 
         FreeRTOS_inet_ntoa( ulDNSServerAddress, cBuffer );
-        printf( ( "DNS Server Address: %s\n", cBuffer ) );
+        printf("\r\nDNS Server Address: ");
+        printf("%s", cBuffer);
     }
 }
 

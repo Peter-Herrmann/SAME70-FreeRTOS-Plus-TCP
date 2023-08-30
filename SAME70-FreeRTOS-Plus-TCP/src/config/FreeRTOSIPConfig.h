@@ -167,10 +167,10 @@ each node on the network has a unique MAC address. */
 
 /* Default IP address configuration.  Used in case ipconfigUSE_DHCP is set to 0, or
 ipconfigUSE_DHCP is set to 1 but a DHCP server cannot be contacted. */
-#define configIP_ADDR0		10
-#define configIP_ADDR1		1
-#define configIP_ADDR2		22
-#define configIP_ADDR3		207
+#define configIP_ADDR0		192
+#define configIP_ADDR1		168
+#define configIP_ADDR2		24
+#define configIP_ADDR3		101
 
 /* Default gateway IP address configuration.  Used in case ipconfigUSE_DHCP is
 set to 0, or ipconfigUSE_DHCP is set to 1 but a DHCP server cannot be contacted. */
