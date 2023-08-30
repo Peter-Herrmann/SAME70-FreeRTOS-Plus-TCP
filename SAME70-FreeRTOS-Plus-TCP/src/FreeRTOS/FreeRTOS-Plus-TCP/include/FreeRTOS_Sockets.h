@@ -36,7 +36,7 @@ extern "C" {
 /* Application level configuration options. */
 #include "FreeRTOSIPConfig.h"
 
-#ifndef FREERTOSIPCONFIG_H_
+#ifndef FREERTOS_IP_CONFIG_H
 	#error FreeRTOSIPConfig.h has not been included yet
 #endif
 

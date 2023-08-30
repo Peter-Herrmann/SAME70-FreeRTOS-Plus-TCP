@@ -499,4 +499,4 @@ available in all the FreeRTOS+TCP source files. */
 } /* extern "C" */
 #endif
 
-#endif /* FREERTOSIPCONFIG_H_ */
+#endif /* FREERTOS_IP_CONFIG_H */
