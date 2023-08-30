@@ -96,9 +96,6 @@
 // From module: System Clock Control - SAME70 implementation
 #include <sysclk.h>
 
-// From module: TC - Timer Counter
-#include <tc.h>
-
 // From module: UART - Univ. Async Rec/Trans
 #include <uart.h>
 

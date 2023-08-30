@@ -124,6 +124,15 @@ SECTIONS
     . = ALIGN(4);
     _etext = .;
 
+    .first_data (NOLOAD) :
+    {
+        . = ALIGN(4);
+        _first_data = . ;
+        *(._first_data ._first_data.*)
+        . = ALIGN(4);
+        _e_first_data = . ;
+    } > ram
+    
     .relocate : AT (_etext)
     {
         . = ALIGN(4);
