@@ -1,7 +1,7 @@
 /*****************************************************************************\
  * main.c: A very minimal implementation of FreeRTOS+TCP on a SAME70         *
  *         microconroller. The program will blink an LED regularly, request  *
- *         DHCP least, respond to ICMP pings, and broadcast ARP .
+ *         and renew a DHCP lease, respond to ICMP pings, manage ARP.        *
  *  Author: Peter Herrmann                                                   *
 \*****************************************************************************/
 
@@ -11,33 +11,33 @@
 static void vEthernetInit( void );
 static void configure_console(void);
 
-/* Default ipconfig. If DHCP is enabled, this will be overwritten. */
-static const uint8_t ucIPAddress[ 4 ] = {configIP_ADDR0, 
-                                         configIP_ADDR1, 
-                                         configIP_ADDR2, 
-                                         configIP_ADDR3 };
+/* Default ipconfig. If DHCP is enabled, these will be overwritten. */
+static const uint8_t ucIPAddress[4]        = {configIP_ADDR0, 
+                                              configIP_ADDR1, 
+                                              configIP_ADDR2, 
+                                              configIP_ADDR3};
 
-static const uint8_t ucNetMask[ 4 ] = { configNET_MASK0, 
-                                        configNET_MASK1, 
-                                        configNET_MASK2, 
-                                        configNET_MASK3 };
+static const uint8_t ucNetMask[4]          = {configNET_MASK0, 
+                                              configNET_MASK1, 
+                                              configNET_MASK2, 
+                                              configNET_MASK3};
 
-static const uint8_t ucGatewayAddress[ 4 ] = { configGATEWAY_ADDR0, 
-                                               configGATEWAY_ADDR1, 
-                                               configGATEWAY_ADDR2, 
-                                               configGATEWAY_ADDR3 };
+static const uint8_t ucGatewayAddress[4]   = {configGATEWAY_ADDR0, 
+                                              configGATEWAY_ADDR1, 
+                                              configGATEWAY_ADDR2, 
+                                              configGATEWAY_ADDR3};
 
-static const uint8_t ucDNSServerAddress[ 4 ] = { configDNS_SERVER_ADDR0, 
-                                                 configDNS_SERVER_ADDR1, 
-                                                 configDNS_SERVER_ADDR2, 
-                                                 configDNS_SERVER_ADDR3 };
+static const uint8_t ucDNSServerAddress[4] = {configDNS_SERVER_ADDR0, 
+                                              configDNS_SERVER_ADDR1, 
+                                              configDNS_SERVER_ADDR2, 
+                                              configDNS_SERVER_ADDR3};
 
-const uint8_t ucMACAddress[ 6 ] = { configMAC_ADDR0, 
-                                    configMAC_ADDR1, 
-                                    configMAC_ADDR2, 
-                                    configMAC_ADDR3, 
-                                    configMAC_ADDR4, 
-                                    configMAC_ADDR5 };
+const uint8_t ucMACAddress[6]              = {configMAC_ADDR0, 
+                                              configMAC_ADDR1, 
+                                              configMAC_ADDR2, 
+                                              configMAC_ADDR3, 
+                                              configMAC_ADDR4, 
+                                              configMAC_ADDR5};
 
 
 int main(void)
@@ -50,7 +50,7 @@ int main(void)
     pmc_enable_periph_clk(ID_PIOA);
     pmc_enable_periph_clk(ID_PIOB);
     vEthernetInit();
-    vSeedRand( ( uint32_t ) main );
+    vSeedRand((uint32_t)main);
 
     FreeRTOS_IPInit(ucIPAddress, 
                     ucNetMask, 

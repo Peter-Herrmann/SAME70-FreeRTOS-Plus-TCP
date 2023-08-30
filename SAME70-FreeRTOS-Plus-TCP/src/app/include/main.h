@@ -3,10 +3,8 @@
  *  Author: Peter Herrmann                                                   *
 \*****************************************************************************/
 
-
 #ifndef MAIN_H_
 #define MAIN_H_
-
 
 /* FreeRTOS Kernel */
 #include <FreeRTOS.h>
@@ -52,11 +50,11 @@
 #include "conf_board.h"
 #include "conf_clock.h"
 
+
 #define mainHOST_NAME BOARD_NAME
 
 
 void vSeedRand( UBaseType_t ulSeed );
-
 
 
 #endif /* MAIN_H_ */
