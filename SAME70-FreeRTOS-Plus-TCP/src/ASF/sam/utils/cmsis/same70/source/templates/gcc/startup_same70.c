@@ -427,10 +427,7 @@ void Reset_Handler(void)
  */
 void Dummy_Handler(void)
 {
-   uint32_t phantomISR = 9999;
-   do
-   {
-      phantomISR = __get_IPSR();
-   }
-   while(0);
+   uint32_t phantomISR = __get_IPSR();
+   
+   printf("\n\rERROR: Unhandled IRQ = %u\n\r", (unsigned int)phantomISR);
 }

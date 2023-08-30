@@ -10,7 +10,6 @@ static UBaseType_t ulNextRand;
 
 extern void vApplicationStackOverflowHook(xTaskHandle *pxTask, signed char *pcTaskName)
 {
-	printf("stack overflow %x %s\r\n", pxTask, (portCHAR *)pcTaskName);
 	for (;;) { }
 }
 

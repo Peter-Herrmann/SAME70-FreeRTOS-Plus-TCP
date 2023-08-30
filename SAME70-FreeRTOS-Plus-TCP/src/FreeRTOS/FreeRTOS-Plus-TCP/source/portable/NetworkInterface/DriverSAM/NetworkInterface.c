@@ -85,6 +85,10 @@
 #include "conf_board.h"
 
 
+static void hand_tx_errors();
+void returnTxBuffer(uint8_t *puc_buffer);
+void vCheckBuffersAndQueue( void );
+
 /* Interrupt events to process.  Currently only the Rx event is processed
 although code for other events is included to allow for possible future
 expansion. */
@@ -144,7 +148,7 @@ FreeRTOSConfig.h as configMINIMAL_STACK_SIZE is a user definable constant. */
 	}
 	/*-----------------------------------------------------------*/
 
-	static void cache_invalidate_by_addr(addr, size) \
+	static void cache_invalidate_by_addr(uint32_t addr, uint32_t size)
 	{
 		/* SAME70 does not have clean/invalidate per area. */
 		/* SCB_InvalidateDCache_by_Addr( ( uint32_t * )addr, size); */
@@ -152,27 +156,7 @@ FreeRTOSConfig.h as configMINIMAL_STACK_SIZE is a user definable constant. */
 	}
 	/*-----------------------------------------------------------*/
 
-//		#if( NETWORK_BUFFERS_CACHED	!= 0 )
-//		{
-//		uint8_t *pucBuffer = pxNextNetworkBufferDescriptor->pucEthernetBuffer;
-//		BaseType_t xReceivedLength = pxNextNetworkBufferDescriptor->xDataLength;
-//
-//			if( pucBuffer != NULL )
-//			{
-//			BaseType_t xlength = CACHE_LINE_SIZE * ( ( xReceivedLength + NETWORK_BUFFER_HEADER_SIZE + CACHE_LINE_SIZE - 1 ) / CACHE_LINE_SIZE );
-//			uint32_t *ptr = ( uint32_t * )( pucBuffer - NETWORK_BUFFER_HEADER_SIZE );
-//			uint32_t ulStore[ 2 ];
-//				ulStore[ 0 ] = ptr[ 0 ];
-//				ulStore[ 1 ] = ptr[ 1 ];
-//				cache_invalidate_by_addr( ptr, xlength );
-//				ptr[ 0 ] = ulStore[ 0 ];
-//				ptr[ 1 ] = ulStore[ 1 ];
-//			}
-//		}
-//		#endif
-
 #else
-	#warning Sure there is no caching?
 	#define		cache_clean_invalidate()						do {} while( 0 )
 	#define		cache_clean_invalidate_by_addr(addr, size)		do {} while( 0 )
 	#define		cache_invalidate_by_addr(addr, size)			do {} while( 0 )
@@ -440,8 +424,6 @@ UBaseType_t uxWasEnabled;
 
 BaseType_t xNetworkInterfaceInitialise( void )
 {
-const TickType_t x5_Seconds = 5000UL;
-
 	if( xEMACTaskHandle == NULL )
 	{
 		prvGMACInit();
@@ -560,8 +542,8 @@ uint32_t ulTransmitSize;
 
 		#if( NETWORK_BUFFERS_CACHED	!= 0 )
 		{
-		uint32_t xlength = CACHE_LINE_SIZE * ( ( ulTransmitSize + NETWORK_BUFFER_HEADER_SIZE + CACHE_LINE_SIZE - 1 ) / CACHE_LINE_SIZE );
-		uint32_t xAddress = ( uint32_t )( pxDescriptor->pucEthernetBuffer - NETWORK_BUFFER_HEADER_SIZE );
+		    uint32_t xlength = CACHE_LINE_SIZE * ( ( ulTransmitSize + NETWORK_BUFFER_HEADER_SIZE + CACHE_LINE_SIZE - 1 ) / CACHE_LINE_SIZE );
+		    uint32_t xAddress = ( uint32_t )( pxDescriptor->pucEthernetBuffer - NETWORK_BUFFER_HEADER_SIZE );
 			cache_clean_invalidate_by_addr( xAddress, xlength );
 		}
 		#endif
@@ -589,8 +571,6 @@ uint32_t ulTransmitSize;
 
 static BaseType_t prvGMACInit( void )
 {
-uint32_t ncfgr;
-
 	gmac_options_t gmac_option;
 
 	gmac_enable_management(GMAC, true);
@@ -907,7 +887,6 @@ UBaseType_t uxCount;
 #endif
 uint8_t *pucBuffer;
 BaseType_t xResult = 0;
-uint32_t xStatus;
 const TickType_t ulMaxBlockTime = pdMS_TO_TICKS( EMAC_MAX_BLOCK_TIME_MS );
 
 	/* Remove compiler warnings about unused parameters. */

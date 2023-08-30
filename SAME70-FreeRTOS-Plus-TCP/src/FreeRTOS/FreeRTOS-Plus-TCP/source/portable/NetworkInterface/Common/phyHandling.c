@@ -473,7 +473,7 @@ TimeOut_t xTimer;
 	{
 		return 0;
 	}
-	for( xPhyIndex = 0; xPhyIndex < pxPhyObject->xPortCount; xPhyIndex++ )
+	for( xPhyIndex = 0; (long)xPhyIndex < pxPhyObject->xPortCount; xPhyIndex++ )
 	{
 		if( ( ulPhyMask & ( 1lu << xPhyIndex ) ) != 0lu )
 		{
@@ -491,7 +491,7 @@ TimeOut_t xTimer;
 	for( ;; )
 	{
 		ulBitMask = ( uint32_t )1u;
-		for( xPhyIndex = 0; xPhyIndex < pxPhyObject->xPortCount; xPhyIndex++, ulBitMask <<= 1 )
+		for( xPhyIndex = 0; (long)xPhyIndex < pxPhyObject->xPortCount; xPhyIndex++, ulBitMask <<= 1 )
 		{
 			if( ( ulPhyMask & ulBitMask ) != 0lu )
 			{
@@ -523,7 +523,7 @@ TimeOut_t xTimer;
 	{
 		ulBitMask = ( uint32_t )1u;
 		pxPhyObject->ulLinkStatusMask &= ~( ulDoneMask );
-		for( xPhyIndex = 0; xPhyIndex < pxPhyObject->xPortCount; xPhyIndex++, ulBitMask <<= 1 )
+		for( xPhyIndex = 0; (long)xPhyIndex < pxPhyObject->xPortCount; xPhyIndex++, ulBitMask <<= 1 )
 		{
 		BaseType_t xPhyAddress = pxPhyObject->ucPhyIndexes[ xPhyIndex ];
 		uint32_t ulPhyID = pxPhyObject->ulPhyIDs[ xPhyIndex ];

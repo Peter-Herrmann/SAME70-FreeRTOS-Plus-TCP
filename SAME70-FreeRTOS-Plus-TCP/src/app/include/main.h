@@ -56,5 +56,18 @@
 
 void vSeedRand( UBaseType_t ulSeed );
 
+/* FreeRTOS Kernel Hooks */
+extern void vApplicationStackOverflowHook(xTaskHandle *pxTask, signed char *pcTaskName);
+extern void vApplicationIdleHook(void);
+extern void vApplicationTickHook(void);
+extern void vApplicationMallocFailedHook(void);
+extern void xPortSysTickHandler(void);
 
+/* FreeRTOS+TCP Library Hooks */
+extern BaseType_t xApplicationDNSQueryHook(const char *pcName);
+extern uint32_t ulApplicationGetNextSequenceNumber(uint32_t ulSourceAddress,
+                                                   uint16_t usSourcePort,
+                                                   uint32_t ulDestinationAddress,
+                                                   uint16_t usDestinationPort);
+												   
 #endif /* MAIN_H_ */

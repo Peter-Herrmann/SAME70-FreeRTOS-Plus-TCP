@@ -10,6 +10,10 @@
 extern "C" {
 #endif
 
+#ifndef NETWORK_BUFFERS_CACHED
+	#define NETWORK_BUFFERS_CACHED (0)
+#endif
+
 #ifndef ipconfigUSE_IPv6
     #define ipconfigUSE_IPv6 (0)
 #endif
