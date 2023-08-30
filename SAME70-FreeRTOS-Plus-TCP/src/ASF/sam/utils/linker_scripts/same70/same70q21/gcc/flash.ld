@@ -1,7 +1,7 @@
 /**
  * \file
  *
- * Copyright (c) 2015 Microchip Technology Inc. All rights reserved.
+ * Copyright (c) 2015 Atmel Corporation. All rights reserved.
  *
  * \asf_license_start
  *
@@ -124,6 +124,15 @@ SECTIONS
     . = ALIGN(4);
     _etext = .;
 
+    .first_data (NOLOAD) :
+    {
+        . = ALIGN(4);
+        _first_data = . ;
+        *(._first_data ._first_data.*)
+        . = ALIGN(4);
+        _e_first_data = . ;
+    } > ram
+    
     .relocate : AT (_etext)
     {
         . = ALIGN(4);

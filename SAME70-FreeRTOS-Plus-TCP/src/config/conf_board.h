@@ -1,7 +1,7 @@
 /**
  * \file
  *
- * \brief Board configuration.
+ * \brief SAME70-XPLAINED board configuration.
  *
  * Copyright (c) 2015-2018 Microchip Technology Inc. and its subsidiaries.
  *
@@ -38,15 +38,9 @@
 #define CONF_BOARD_H_INCLUDED
 
 /* Enable ICache and DCache */
-#define CONF_BOARD_ENABLE_CACHE
+//#define CONF_BOARD_ENABLE_CACHE
 
-/** Enable Com Port. */
+/* Configure UART pins */
 #define CONF_BOARD_UART_CONSOLE
-
-/** define BOARD_NO_PUSHBUTTON_2. */
-#define BOARD_NO_PUSHBUTTON_2
-
-/** define BOARD_NO_LED_1. */
-#define BOARD_NO_LED_1
 
 #endif /* CONF_BOARD_H_INCLUDED */

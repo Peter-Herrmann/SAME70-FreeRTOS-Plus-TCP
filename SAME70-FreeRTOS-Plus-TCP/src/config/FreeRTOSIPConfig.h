@@ -5,8 +5,8 @@
  */ 
 
 
-#ifndef FREERTOSIPCONFIG_H_
-#define FREERTOSIPCONFIG_H_
+#ifndef FREERTOS_IP_CONFIG_H
+#define FREERTOS_IP_CONFIG_H
 
 #ifdef __cplusplus
 extern "C" {
