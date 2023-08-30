@@ -46,7 +46,7 @@
 
 
 
-#define mainHOST_NAME               "SAME70Q21"
+#define mainHOST_NAME               "SAME70"
 #define TASK_LED_STACK_SIZE         (1024/sizeof(portSTACK_TYPE))
 #define TASK_LED_STACK_PRIORITY     (tskIDLE_PRIORITY)
 
