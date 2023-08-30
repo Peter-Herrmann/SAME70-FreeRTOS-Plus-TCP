@@ -1,6 +1,8 @@
 /*
- * FreeRTOS+TCP V2.0.7
- * Copyright (C) 2017 Amazon.com, Inc. or its affiliates.  All Rights Reserved.
+ * FreeRTOS+TCP V3.1.0
+ * Copyright (C) 2022 Amazon.com, Inc. or its affiliates.  All Rights Reserved.
+ *
+ * SPDX-License-Identifier: MIT
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
  * this software and associated documentation files (the "Software"), to deal in
@@ -26,19 +28,27 @@
 #ifndef NETWORK_INTERFACE_H
 #define NETWORK_INTERFACE_H
 
+/* *INDENT-OFF* */
 #ifdef __cplusplus
-extern "C" {
+    extern "C" {
 #endif
+/* *INDENT-ON* */
 
-/* NOTE PUBLIC API FUNCTIONS. */
+/* INTERNAL API FUNCTIONS. */
 BaseType_t xNetworkInterfaceInitialise( void );
-BaseType_t xNetworkInterfaceOutput( NetworkBufferDescriptor_t * const pxNetworkBuffer, BaseType_t xReleaseAfterSend );
+BaseType_t xNetworkInterfaceOutput( NetworkBufferDescriptor_t * const pxNetworkBuffer,
+                                    BaseType_t xReleaseAfterSend );
+
+/* The following function is defined only when BufferAllocation_1.c is linked in the project. */
 void vNetworkInterfaceAllocateRAMToBuffers( NetworkBufferDescriptor_t pxNetworkBuffers[ ipconfigNUM_NETWORK_BUFFER_DESCRIPTORS ] );
+
+/* The following function is defined only when BufferAllocation_1.c is linked in the project. */
 BaseType_t xGetPhyLinkStatus( void );
 
+/* *INDENT-OFF* */
 #ifdef __cplusplus
-} // extern "C"
+    } /* extern "C" */
 #endif
+/* *INDENT-ON* */
 
 #endif /* NETWORK_INTERFACE_H */
-

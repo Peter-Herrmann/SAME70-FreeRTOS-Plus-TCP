@@ -1,6 +1,8 @@
 /*
- * FreeRTOS+TCP V2.0.7
- * Copyright (C) 2017 Amazon.com, Inc. or its affiliates.  All Rights Reserved.
+ * FreeRTOS+TCP V3.1.0
+ * Copyright (C) 2022 Amazon.com, Inc. or its affiliates.  All Rights Reserved.
+ *
+ * SPDX-License-Identifier: MIT
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
  * this software and associated documentation files (the "Software"), to deal in
@@ -26,18 +28,25 @@
 #ifndef NETWORK_BUFFER_MANAGEMENT_H
 #define NETWORK_BUFFER_MANAGEMENT_H
 
+/* *INDENT-OFF* */
 #ifdef __cplusplus
-extern "C" {
+    extern "C" {
 #endif
+/* *INDENT-ON* */
 
 /* NOTE PUBLIC API FUNCTIONS. */
 BaseType_t xNetworkBuffersInitialise( void );
-NetworkBufferDescriptor_t *pxGetNetworkBufferWithDescriptor( size_t xRequestedSizeBytes, TickType_t xBlockTimeTicks );
-NetworkBufferDescriptor_t *pxNetworkBufferGetFromISR( size_t xRequestedSizeBytes );
+NetworkBufferDescriptor_t * pxGetNetworkBufferWithDescriptor( size_t xRequestedSizeBytes,
+                                                              TickType_t xBlockTimeTicks );
+
+/* The definition of the below function is only available if BufferAllocation_2.c has been linked into the source. */
+NetworkBufferDescriptor_t * pxNetworkBufferGetFromISR( size_t xRequestedSizeBytes );
 void vReleaseNetworkBufferAndDescriptor( NetworkBufferDescriptor_t * const pxNetworkBuffer );
+
+/* The definition of the below function is only available if BufferAllocation_2.c has been linked into the source. */
 BaseType_t vNetworkBufferReleaseFromISR( NetworkBufferDescriptor_t * const pxNetworkBuffer );
-uint8_t *pucGetNetworkBuffer( size_t *pxRequestedSizeBytes );
-void vReleaseNetworkBuffer( uint8_t *pucEthernetBuffer );
+uint8_t * pucGetNetworkBuffer( size_t * pxRequestedSizeBytes );
+void vReleaseNetworkBuffer( uint8_t * pucEthernetBuffer );
 
 /* Get the current number of free network buffers. */
 UBaseType_t uxGetNumberOfFreeNetworkBuffers( void );
@@ -46,25 +55,29 @@ UBaseType_t uxGetNumberOfFreeNetworkBuffers( void );
 UBaseType_t uxGetMinimumFreeNetworkBuffers( void );
 
 /* Copy a network buffer into a bigger buffer. */
-NetworkBufferDescriptor_t *pxDuplicateNetworkBufferWithDescriptor( NetworkBufferDescriptor_t * const pxNetworkBuffer,
-	BaseType_t xNewLength);
+NetworkBufferDescriptor_t * pxDuplicateNetworkBufferWithDescriptor( const NetworkBufferDescriptor_t * const pxNetworkBuffer,
+                                                                    size_t uxNewLength );
 
 /* Increase the size of a Network Buffer.
-In case BufferAllocation_2.c is used, the new space must be allocated. */
-NetworkBufferDescriptor_t *pxResizeNetworkBufferWithDescriptor( NetworkBufferDescriptor_t * pxNetworkBuffer,
-	size_t xNewSizeBytes );
+ * In case BufferAllocation_2.c is used, the new space must be allocated. */
+NetworkBufferDescriptor_t * pxResizeNetworkBufferWithDescriptor( NetworkBufferDescriptor_t * pxNetworkBuffer,
+                                                                 size_t xNewSizeBytes );
 
 #if ipconfigTCP_IP_SANITY
-	/*
-	 * Check if an address is a valid pointer to a network descriptor
-	 * by looking it up in the array of network descriptors
-	 */
-	UBaseType_t bIsValidNetworkDescriptor (const NetworkBufferDescriptor_t * pxDesc);
-	BaseType_t prvIsFreeBuffer( const NetworkBufferDescriptor_t *pxDescr );
+
+/*
+ * Check if an address is a valid pointer to a network descriptor
+ * by looking it up in the array of network descriptors
+ */
+    UBaseType_t bIsValidNetworkDescriptor( const NetworkBufferDescriptor_t * pxDesc );
+    BaseType_t prvIsFreeBuffer( const NetworkBufferDescriptor_t * pxDescr );
 #endif
 
+/* *INDENT-OFF* */
 #ifdef __cplusplus
-} // extern "C"
+    } /* extern "C" */
 #endif
+/* *INDENT-ON* */
+
 
 #endif /* NETWORK_BUFFER_MANAGEMENT_H */
