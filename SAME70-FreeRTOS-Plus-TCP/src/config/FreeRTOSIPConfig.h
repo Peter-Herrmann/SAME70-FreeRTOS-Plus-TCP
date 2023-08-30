@@ -12,6 +12,18 @@
 extern "C" {
 #endif
 
+#ifndef ipconfigUSE_IPv6
+    #define ipconfigUSE_IPv6 (0)
+#endif
+
+#ifndef USE_LOG_EVENT
+    #define USE_LOG_EVENT (0)
+#endif
+
+#ifndef ipconfigMULTI_INTERFACE
+    #define ipconfigMULTI_INTERFACE (0)
+#endif
+
 #ifndef GMAC_USES_WAKEUP_CALLBACK
     #define GMAC_USES_WAKEUP_CALLBACK (0)
 #endif

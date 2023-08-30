@@ -74,10 +74,52 @@
  *    stop & restart blinking.
  *
  */
+
+
 /*
  * Support and FAQ: visit <a href="https://www.microchip.com/support/">Microchip Support</a>
  */
+// From module: FreeRTOS - kernel 10.0.0
+#include <FreeRTOS.h>
+#include <stack_macros.h>
+#include <croutine.h>
+#include <deprecated_definitions.h>
+#include <event_groups.h>
+#include <list.h>
+#include <message_buffer.h>
+#include <mpu_wrappers.h>
+#include <portable.h>
+#include <projdefs.h>
+#include <queue.h>
+#include <semphr.h>
+#include <stack_macros.h>
+#include <stream_buffer.h>
+#include <task.h>
+#include <timers.h>
 
+#include "FreeRTOS_IP.h"
+#include "FreeRTOS_Sockets.h"
+#include "FreeRTOS_DHCP.h"
+#include "NetworkBufferManagement.h"
+#include "FreeRTOS_ARP.h"
+#include "NetworkInterface.h"
+#include "gmac_SAM.h"
+
+#if( ipconfigUSE_IPv6 != 0 )
+	#include "FreeRTOS_ND.h"
+#endif
+
+#if( USE_LOG_EVENT != 0 )
+	#include "eventLogging.h"
+#endif
+
+#if( ipconfigMULTI_INTERFACE != 0 )
+	#include "FreeRTOS_Routing.h"
+#endif
+
+#include <stdio.h>
+#include <stdarg.h>
+#include <string.h>
 #include "asf.h"
 #include "stdio_serial.h"
 #include "conf_board.h"
