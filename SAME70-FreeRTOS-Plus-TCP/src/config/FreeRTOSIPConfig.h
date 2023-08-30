@@ -1,9 +1,7 @@
-/*
- * FreeRTOSIPConfig.h
- *
- *  Author: pherrmann
- */ 
-
+/*****************************************************************************\
+ * FreeRTOSConfig.c: Configuration definitions for the FreeRTOS+TCP library. *
+ *  Author: Peter Herrmann                                                   *
+\*****************************************************************************/
 
 #ifndef FREERTOS_IP_CONFIG_H
 #define FREERTOS_IP_CONFIG_H

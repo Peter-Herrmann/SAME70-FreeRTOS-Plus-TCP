@@ -1,9 +1,7 @@
-/*
- * main.h
- *
- * Created: 8/30/2023 12:02:14 PM
- *  Author: pherrmann
- */ 
+/*****************************************************************************\
+ * main.h: Includes and declarations for he application scope                *
+ *  Author: Peter Herrmann                                                   *
+\*****************************************************************************/
 
 
 #ifndef MAIN_H_

@@ -1,9 +1,7 @@
-/*
- * FreeRTOSConfig.h
- *
- *  Author: pherrmann
- */ 
-
+/*****************************************************************************\
+ * FreeRTOSConfig.c: Configuration definitions for the FreeRTOS kernel.      *
+ *  Author: Peter Herrmann                                                   *
+\*****************************************************************************/
 
 #ifndef FREERTOSCONFIG_H_
 #define FREERTOSCONFIG_H_

@@ -1,9 +1,8 @@
-/*
- * hooks.c
- *
- * Created: 8/30/2023 12:08:43 PM
- *  Author: pherrman
- */ 
+/*****************************************************************************\
+ * hooks.c: Definitions of the applicaiton hooks provided by a FreeRTOS      *
+ *          application.                                                     *
+ *  Author: Peter Herrmann                                                   *
+\*****************************************************************************/
 
 #include "main.h"
 

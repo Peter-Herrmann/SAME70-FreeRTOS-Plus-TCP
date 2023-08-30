@@ -1,9 +1,8 @@
-/*
- * LED_task.c
- *
- * Created: 8/30/2023 12:05:08 PM
- *  Author: pherrman
- */ 
+/*****************************************************************************\
+ * LED_task.c: FreeRTOS Task for blinky LED                                  *
+ *  Author: Peter Herrmann                                                   *
+\*****************************************************************************/
+
 #include "LED_task.h"
 
 
