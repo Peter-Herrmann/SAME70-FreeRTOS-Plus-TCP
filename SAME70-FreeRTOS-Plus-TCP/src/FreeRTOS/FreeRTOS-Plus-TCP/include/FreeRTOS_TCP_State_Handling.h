@@ -25,8 +25,10 @@
  * http://www.FreeRTOS.org
  */
 
-#ifndef NETWORK_INTERFACE_H
-#define NETWORK_INTERFACE_H
+#ifndef FREERTOS_TCP_STATE_HANDLING_H
+#define FREERTOS_TCP_STATE_HANDLING_H
+
+#include "FreeRTOS_TCP_IP.h"
 
 /* *INDENT-OFF* */
 #ifdef __cplusplus
@@ -34,16 +36,34 @@
 #endif
 /* *INDENT-ON* */
 
-/* INTERNAL API FUNCTIONS. */
-BaseType_t xNetworkInterfaceInitialise( void );
-BaseType_t xNetworkInterfaceOutput( NetworkBufferDescriptor_t * const pxNetworkBuffer,
-                                    BaseType_t xReleaseAfterSend );
+/*
+ * Returns true if the socket must be checked.  Non-active sockets are waiting
+ * for user action, either connect() or close().
+ */
+BaseType_t prvTCPSocketIsActive( eIPTCPState_t eStatus );
 
-/* The following function is defined only when BufferAllocation_1.c is linked in the project. */
-void vNetworkInterfaceAllocateRAMToBuffers( NetworkBufferDescriptor_t pxNetworkBuffers[ ipconfigNUM_NETWORK_BUFFER_DESCRIPTORS ] );
+/*
+ * prvTCPStatusAgeCheck() will see if the socket has been in a non-connected
+ * state for too long.  If so, the socket will be closed, and -1 will be
+ * returned.
+ */
+#if ( ipconfigTCP_HANG_PROTECTION == 1 )
+    BaseType_t prvTCPStatusAgeCheck( FreeRTOS_Socket_t * pxSocket );
+#endif
 
-/* The following function is defined only when BufferAllocation_1.c is linked in the project. */
-BaseType_t xGetPhyLinkStatus( void );
+/*
+ * The heart of all: check incoming packet for valid data and acks and do what
+ * is necessary in each state.
+ */
+BaseType_t prvTCPHandleState( FreeRTOS_Socket_t * pxSocket,
+                              NetworkBufferDescriptor_t ** ppxNetworkBuffer );
+
+/*
+ * Return either a newly created socket, or the current socket in a connected
+ * state (depends on the 'bReuseSocket' flag).
+ */
+FreeRTOS_Socket_t * prvHandleListen( FreeRTOS_Socket_t * pxSocket,
+                                     NetworkBufferDescriptor_t * pxNetworkBuffer );
 
 /* *INDENT-OFF* */
 #ifdef __cplusplus
@@ -51,4 +71,4 @@ BaseType_t xGetPhyLinkStatus( void );
 #endif
 /* *INDENT-ON* */
 
-#endif /* NETWORK_INTERFACE_H */
+#endif /* FREERTOS_TCP_STATE_HANDLING_H */

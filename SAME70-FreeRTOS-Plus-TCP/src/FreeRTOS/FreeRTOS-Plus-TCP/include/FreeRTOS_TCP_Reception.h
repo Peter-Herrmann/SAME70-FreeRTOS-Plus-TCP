@@ -25,8 +25,8 @@
  * http://www.FreeRTOS.org
  */
 
-#ifndef NETWORK_INTERFACE_H
-#define NETWORK_INTERFACE_H
+#ifndef FREERTOS_TCP_RECEPTION_H
+#define FREERTOS_TCP_RECEPTION_H
 
 /* *INDENT-OFF* */
 #ifdef __cplusplus
@@ -34,16 +34,28 @@
 #endif
 /* *INDENT-ON* */
 
-/* INTERNAL API FUNCTIONS. */
-BaseType_t xNetworkInterfaceInitialise( void );
-BaseType_t xNetworkInterfaceOutput( NetworkBufferDescriptor_t * const pxNetworkBuffer,
-                                    BaseType_t xReleaseAfterSend );
+/*
+ * Called from xProcessReceivedTCPPacket. Parse the TCP option(s) received,
+ * if present. This function returns pdFALSE if the options are not well formed.
+ */
+BaseType_t prvCheckOptions( FreeRTOS_Socket_t * pxSocket,
+                            const NetworkBufferDescriptor_t * pxNetworkBuffer );
 
-/* The following function is defined only when BufferAllocation_1.c is linked in the project. */
-void vNetworkInterfaceAllocateRAMToBuffers( NetworkBufferDescriptor_t pxNetworkBuffers[ ipconfigNUM_NETWORK_BUFFER_DESCRIPTORS ] );
+/*
+ * Called from prvTCPHandleState().  Find the TCP payload data and check and
+ * return its length.
+ */
+BaseType_t prvCheckRxData( const NetworkBufferDescriptor_t * pxNetworkBuffer,
+                           uint8_t ** ppucRecvData );
 
-/* The following function is defined only when BufferAllocation_1.c is linked in the project. */
-BaseType_t xGetPhyLinkStatus( void );
+/*
+ * Called from prvTCPHandleState().  Check if the payload data may be accepted.
+ * If so, it will be added to the socket's reception queue.
+ */
+BaseType_t prvStoreRxData( FreeRTOS_Socket_t * pxSocket,
+                           const uint8_t * pucRecvData,
+                           NetworkBufferDescriptor_t * pxNetworkBuffer,
+                           uint32_t ulReceiveLength );
 
 /* *INDENT-OFF* */
 #ifdef __cplusplus
@@ -51,4 +63,4 @@ BaseType_t xGetPhyLinkStatus( void );
 #endif
 /* *INDENT-ON* */
 
-#endif /* NETWORK_INTERFACE_H */
+#endif /* FREERTOS_TCP_RECEPTION_H */

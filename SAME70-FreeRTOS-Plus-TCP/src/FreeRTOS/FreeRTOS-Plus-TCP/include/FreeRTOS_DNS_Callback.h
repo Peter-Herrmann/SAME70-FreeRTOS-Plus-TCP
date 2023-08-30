@@ -21,12 +21,13 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
- * http://aws.amazon.com/freertos
- * http://www.FreeRTOS.org
+ * https://github.com/FreeRTOS
+ * https://www.FreeRTOS.org
  */
 
-#ifndef NETWORK_INTERFACE_H
-#define NETWORK_INTERFACE_H
+
+#ifndef FREERTOS_DNS_CALLBACK_H
+#define FREERTOS_DNS_CALLBACK_H
 
 /* *INDENT-OFF* */
 #ifdef __cplusplus
@@ -34,16 +35,36 @@
 #endif
 /* *INDENT-ON* */
 
-/* INTERNAL API FUNCTIONS. */
-BaseType_t xNetworkInterfaceInitialise( void );
-BaseType_t xNetworkInterfaceOutput( NetworkBufferDescriptor_t * const pxNetworkBuffer,
-                                    BaseType_t xReleaseAfterSend );
+/* FreeRTOS includes. */
+#include "FreeRTOS.h"
 
-/* The following function is defined only when BufferAllocation_1.c is linked in the project. */
-void vNetworkInterfaceAllocateRAMToBuffers( NetworkBufferDescriptor_t pxNetworkBuffers[ ipconfigNUM_NETWORK_BUFFER_DESCRIPTORS ] );
+/* FreeRTOS+TCP includes. */
+#include "FreeRTOS_IP.h"
 
-/* The following function is defined only when BufferAllocation_1.c is linked in the project. */
-BaseType_t xGetPhyLinkStatus( void );
+#include "FreeRTOS_DNS_Globals.h"
+
+/* Standard includes. */
+#include <stdint.h>
+/* Application level configuration options. */
+
+#if ( ( ipconfigDNS_USE_CALLBACKS == 1 ) && ( ipconfigUSE_DNS != 0 ) )
+
+    BaseType_t xDNSDoCallback( TickType_t uxIdentifier,
+                               const char * pcName,
+                               uint32_t ulIPAddress );
+
+    void vDNSSetCallBack( const char * pcHostName,
+                          void * pvSearchID,
+                          FOnDNSEvent pCallbackFunction,
+                          TickType_t uxTimeout,
+                          TickType_t uxIdentifier );
+
+    void vDNSCheckCallBack( void * pvSearchID );
+
+
+    void vDNSCallbackInitialise();
+
+#endif /* ipconfigDNS_USE_CALLBACKS  && ipconfigUSE_DNS */
 
 /* *INDENT-OFF* */
 #ifdef __cplusplus
@@ -51,4 +72,4 @@ BaseType_t xGetPhyLinkStatus( void );
 #endif
 /* *INDENT-ON* */
 
-#endif /* NETWORK_INTERFACE_H */
+#endif /* ifndef FREERTOS_DNS_CALLBACK_H */

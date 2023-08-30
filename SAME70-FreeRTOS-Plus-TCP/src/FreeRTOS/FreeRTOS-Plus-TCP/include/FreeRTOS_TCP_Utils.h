@@ -25,8 +25,8 @@
  * http://www.FreeRTOS.org
  */
 
-#ifndef NETWORK_INTERFACE_H
-#define NETWORK_INTERFACE_H
+#ifndef FREERTOS_TCP_UTILS_H
+#define FREERTOS_TCP_UTILS_H
 
 /* *INDENT-OFF* */
 #ifdef __cplusplus
@@ -34,16 +34,18 @@
 #endif
 /* *INDENT-ON* */
 
-/* INTERNAL API FUNCTIONS. */
-BaseType_t xNetworkInterfaceInitialise( void );
-BaseType_t xNetworkInterfaceOutput( NetworkBufferDescriptor_t * const pxNetworkBuffer,
-                                    BaseType_t xReleaseAfterSend );
 
-/* The following function is defined only when BufferAllocation_1.c is linked in the project. */
-void vNetworkInterfaceAllocateRAMToBuffers( NetworkBufferDescriptor_t pxNetworkBuffers[ ipconfigNUM_NETWORK_BUFFER_DESCRIPTORS ] );
+/*
+ * For logging and debugging: make a string showing the TCP flags.
+ */
+#if ( ipconfigHAS_DEBUG_PRINTF != 0 )
+    const char * prvTCPFlagMeaning( UBaseType_t xFlags );
+#endif /* ipconfigHAS_DEBUG_PRINTF != 0 */
 
-/* The following function is defined only when BufferAllocation_1.c is linked in the project. */
-BaseType_t xGetPhyLinkStatus( void );
+/*
+ * Set the initial value for MSS (Maximum Segment Size) to be used.
+ */
+void prvSocketSetMSS( FreeRTOS_Socket_t * pxSocket );
 
 /* *INDENT-OFF* */
 #ifdef __cplusplus
@@ -51,4 +53,4 @@ BaseType_t xGetPhyLinkStatus( void );
 #endif
 /* *INDENT-ON* */
 
-#endif /* NETWORK_INTERFACE_H */
+#endif /* FREERTOS_TCP_UTILS_H */

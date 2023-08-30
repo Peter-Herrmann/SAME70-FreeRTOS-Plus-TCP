@@ -65,6 +65,7 @@ extern void xPortSysTickHandler(void);
 
 /* FreeRTOS+TCP Library Hooks */
 extern BaseType_t xApplicationDNSQueryHook(const char *pcName);
+extern BaseType_t xApplicationGetRandomNumber( uint32_t * pulNumber );
 extern uint32_t ulApplicationGetNextSequenceNumber(uint32_t ulSourceAddress,
                                                    uint16_t usSourcePort,
                                                    uint32_t ulDestinationAddress,

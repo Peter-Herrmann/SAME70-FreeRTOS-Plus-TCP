@@ -417,155 +417,155 @@
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <ToolchainSettings>
       <ArmGcc>
-        <armgcc.common.outputfiles.hex>True</armgcc.common.outputfiles.hex>
-        <armgcc.common.outputfiles.lss>True</armgcc.common.outputfiles.lss>
-        <armgcc.common.outputfiles.eep>True</armgcc.common.outputfiles.eep>
-        <armgcc.common.outputfiles.bin>True</armgcc.common.outputfiles.bin>
-        <armgcc.common.outputfiles.srec>True</armgcc.common.outputfiles.srec>
-        <armgcc.compiler.symbols.DefSymbols>
-          <ListValues>
-            <Value>DEBUG</Value>
-            <Value>__SAME70Q21B__</Value>
-            <Value>BOARD=SAME70_XPLAINED</Value>
-            <Value>scanf=iscanf</Value>
-            <Value>ARM_MATH_CM7=true</Value>
-            <Value>printf=iprintf</Value>
-          </ListValues>
-        </armgcc.compiler.symbols.DefSymbols>
-        <armgcc.compiler.directories.IncludePaths>
-          <ListValues>
-            <Value>../src/ASF/sam/drivers/pmc</Value>
-            <Value>../src/ASF/sam/utils</Value>
-            <Value>../src/ASF/sam/utils/header_files</Value>
-            <Value>../src/ASF/sam/utils/preprocessor</Value>
-            <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
-            <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
-            <Value>../src/ASF/sam/utils/fpu</Value>
-            <Value>../src/ASF/common/utils</Value>
-            <Value>../src/ASF/sam/utils/cmsis/same70/include</Value>
-            <Value>../src/ASF/sam/utils/cmsis/same70/source/templates</Value>
-            <Value>../src/ASF/sam/drivers/pio</Value>
-            <Value>../src/ASF/common/services/ioport</Value>
-            <Value>../src/ASF/common/services/clock</Value>
-            <Value>../src/ASF/common/utils/stdio/stdio_serial</Value>
-            <Value>../src/ASF/common/services/serial/sam_uart</Value>
-            <Value>../src/ASF/common/services/serial</Value>
-            <Value>../src/ASF/sam/drivers/uart</Value>
-            <Value>../src/ASF/sam/drivers/usart</Value>
-            <Value>../src/ASF/sam/boards/same70_xplained</Value>
-            <Value>../src/ASF/sam/boards</Value>
-            <Value>../src/ASF/common/boards</Value>
-            <Value>../src/ASF/common/services/gpio</Value>
-            <Value>../src/ASF/sam/drivers/mpu</Value>
-            <Value>../src/ASF/sam/drivers/matrix</Value>
-            <Value>../src</Value>
-            <Value>../src/config</Value>
-            <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/portable/NetworkInterface/DriverSAM</Value>
-            <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/portable/NetworkInterface/include</Value>
-            <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/portable/Compiler/GCC</Value>
-            <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/protocols/include</Value>
-            <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/include</Value>
-            <Value>../src/FreeRTOS/Utilities</Value>
-            <Value>../src/FreeRTOS/Utilities/include</Value>
-            <Value>../src/FreeRTOS/FreeRTOS/Source/include</Value>
-            <Value>../src/FreeRTOS/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1</Value>
-            <Value>../src/tasks/include</Value>
-            <Value>../src/app/include</Value>
-          </ListValues>
-        </armgcc.compiler.directories.IncludePaths>
-        <armgcc.compiler.optimization.level>Optimize (-O1)</armgcc.compiler.optimization.level>
-        <armgcc.compiler.optimization.OtherFlags>-fdata-sections</armgcc.compiler.optimization.OtherFlags>
-        <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
-        <armgcc.compiler.optimization.DebugLevel>Maximum (-g3)</armgcc.compiler.optimization.DebugLevel>
-        <armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
-        <armgcc.compiler.miscellaneous.OtherFlags>-pipe -fno-strict-aliasing -Wall -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wunused -Wuninitialized -Wshadow -Wbad-function-cast -Wwrite-strings -Wsign-compare -Wmissing-declarations -Wformat -Wunreachable-code --param max-inline-insns-single=500 -mfloat-abi=softfp -mfpu=fpv5-sp-d16</armgcc.compiler.miscellaneous.OtherFlags>
-        <armgcc.linker.libraries.Libraries>
-          <ListValues>
-            <Value>libarm_cortexM7lfsp_math_softfp</Value>
-            <Value>libm</Value>
-          </ListValues>
-        </armgcc.linker.libraries.Libraries>
-        <armgcc.linker.libraries.LibrarySearchPaths>
-          <ListValues>
-            <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
-          </ListValues>
-        </armgcc.linker.libraries.LibrarySearchPaths>
-        <armgcc.linker.optimization.GarbageCollectUnusedSections>True</armgcc.linker.optimization.GarbageCollectUnusedSections>
-        <armgcc.linker.memorysettings.ExternalRAM />
-        <armgcc.linker.miscellaneous.LinkerFlags>-Wl,--entry=Reset_Handler -Wl,--cref -mthumb -T../src/ASF/sam/utils/linker_scripts/same70/same70q21/gcc/flash.ld</armgcc.linker.miscellaneous.LinkerFlags>
-        <armgcc.assembler.general.IncludePaths>
-          <ListValues>
-            <Value>../src/ASF/sam/drivers/pmc</Value>
-            <Value>../src/ASF/sam/utils</Value>
-            <Value>../src/ASF/sam/utils/header_files</Value>
-            <Value>../src/ASF/sam/utils/preprocessor</Value>
-            <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
-            <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
-            <Value>../src/ASF/sam/utils/fpu</Value>
-            <Value>../src/ASF/common/utils</Value>
-            <Value>../src/ASF/sam/utils/cmsis/same70/include</Value>
-            <Value>../src/ASF/sam/utils/cmsis/same70/source/templates</Value>
-            <Value>../src/ASF/sam/drivers/pio</Value>
-            <Value>../src/ASF/common/services/ioport</Value>
-            <Value>../src/ASF/common/services/clock</Value>
-            <Value>../src/ASF/common/utils/stdio/stdio_serial</Value>
-            <Value>../src/ASF/common/services/serial/sam_uart</Value>
-            <Value>../src/ASF/common/services/serial</Value>
-            <Value>../src/ASF/sam/drivers/uart</Value>
-            <Value>../src/ASF/sam/drivers/usart</Value>
-            <Value>../src/ASF/sam/boards/same70_xplained</Value>
-            <Value>../src/ASF/sam/boards</Value>
-            <Value>../src/ASF/common/boards</Value>
-            <Value>../src/ASF/common/services/gpio</Value>
-            <Value>../src/ASF/sam/drivers/mpu</Value>
-            <Value>../src/ASF/sam/drivers/matrix</Value>
-            <Value>../src</Value>
-            <Value>../src/config</Value>
-            <Value>../src/FreeRTOS/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1</Value>
-            <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/portable/NetworkInterface/DriverSAM</Value>
-            <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/portable/NetworkInterface/include</Value>
-            <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/portable/Compiler/GCC</Value>
-            <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/protocols/include</Value>
-            <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/include</Value>
-            <Value>../src/FreeRTOS/Utilities</Value>
-            <Value>../src/FreeRTOS/Utilities/include</Value>
-            <Value>../src/FreeRTOS/FreeRTOS/Source/include</Value>
-          </ListValues>
-        </armgcc.assembler.general.IncludePaths>
-        <armgcc.assembler.debugging.DebugLevel>Default (-g)</armgcc.assembler.debugging.DebugLevel>
-        <armgcc.preprocessingassembler.general.AssemblerFlags>-DARM_MATH_CM7=true -DBOARD=SAME70_XPLAINED -D__SAME70Q21B__ -Dprintf=iprintf -Dscanf=iscanf</armgcc.preprocessingassembler.general.AssemblerFlags>
-        <armgcc.preprocessingassembler.general.IncludePaths>
-          <ListValues>
-            <Value>../src/ASF/sam/drivers/pmc</Value>
-            <Value>../src/ASF/sam/utils</Value>
-            <Value>../src/ASF/sam/utils/header_files</Value>
-            <Value>../src/ASF/sam/utils/preprocessor</Value>
-            <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
-            <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
-            <Value>../src/ASF/sam/utils/fpu</Value>
-            <Value>../src/ASF/common/utils</Value>
-            <Value>../src/ASF/sam/utils/cmsis/same70/include</Value>
-            <Value>../src/ASF/sam/utils/cmsis/same70/source/templates</Value>
-            <Value>../src/ASF/sam/drivers/pio</Value>
-            <Value>../src/ASF/common/services/ioport</Value>
-            <Value>../src/ASF/common/services/clock</Value>
-            <Value>../src/ASF/common/utils/stdio/stdio_serial</Value>
-            <Value>../src/ASF/common/services/serial/sam_uart</Value>
-            <Value>../src/ASF/common/services/serial</Value>
-            <Value>../src/ASF/sam/drivers/uart</Value>
-            <Value>../src/ASF/sam/drivers/usart</Value>
-            <Value>../src/ASF/sam/boards/same70_xplained</Value>
-            <Value>../src/ASF/sam/boards</Value>
-            <Value>../src/ASF/common/boards</Value>
-            <Value>../src/ASF/common/services/gpio</Value>
-            <Value>../src/ASF/sam/drivers/mpu</Value>
-            <Value>../src/ASF/sam/drivers/matrix</Value>
-            <Value>../src</Value>
-            <Value>../src/config</Value>
-          </ListValues>
-        </armgcc.preprocessingassembler.general.IncludePaths>
-        <armgcc.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcc.preprocessingassembler.debugging.DebugLevel>
-      </ArmGcc>
+  <armgcc.common.outputfiles.hex>True</armgcc.common.outputfiles.hex>
+  <armgcc.common.outputfiles.lss>True</armgcc.common.outputfiles.lss>
+  <armgcc.common.outputfiles.eep>True</armgcc.common.outputfiles.eep>
+  <armgcc.common.outputfiles.bin>True</armgcc.common.outputfiles.bin>
+  <armgcc.common.outputfiles.srec>True</armgcc.common.outputfiles.srec>
+  <armgcc.compiler.symbols.DefSymbols>
+    <ListValues>
+      <Value>DEBUG</Value>
+      <Value>__SAME70Q21B__</Value>
+      <Value>BOARD=SAME70_XPLAINED</Value>
+      <Value>scanf=iscanf</Value>
+      <Value>ARM_MATH_CM7=true</Value>
+      <Value>printf=iprintf</Value>
+    </ListValues>
+  </armgcc.compiler.symbols.DefSymbols>
+  <armgcc.compiler.directories.IncludePaths>
+    <ListValues>
+      <Value>../src/ASF/sam/drivers/pmc</Value>
+      <Value>../src/ASF/sam/utils</Value>
+      <Value>../src/ASF/sam/utils/header_files</Value>
+      <Value>../src/ASF/sam/utils/preprocessor</Value>
+      <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
+      <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+      <Value>../src/ASF/sam/utils/fpu</Value>
+      <Value>../src/ASF/common/utils</Value>
+      <Value>../src/ASF/sam/utils/cmsis/same70/include</Value>
+      <Value>../src/ASF/sam/utils/cmsis/same70/source/templates</Value>
+      <Value>../src/ASF/sam/drivers/pio</Value>
+      <Value>../src/ASF/common/services/ioport</Value>
+      <Value>../src/ASF/common/services/clock</Value>
+      <Value>../src/ASF/common/utils/stdio/stdio_serial</Value>
+      <Value>../src/ASF/common/services/serial/sam_uart</Value>
+      <Value>../src/ASF/common/services/serial</Value>
+      <Value>../src/ASF/sam/drivers/uart</Value>
+      <Value>../src/ASF/sam/drivers/usart</Value>
+      <Value>../src/ASF/sam/boards/same70_xplained</Value>
+      <Value>../src/ASF/sam/boards</Value>
+      <Value>../src/ASF/common/boards</Value>
+      <Value>../src/ASF/common/services/gpio</Value>
+      <Value>../src/ASF/sam/drivers/mpu</Value>
+      <Value>../src/ASF/sam/drivers/matrix</Value>
+      <Value>../src</Value>
+      <Value>../src/config</Value>
+      <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/portable/NetworkInterface/DriverSAM</Value>
+      <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/portable/NetworkInterface/include</Value>
+      <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/portable/Compiler/GCC</Value>
+      <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/protocols/include</Value>
+      <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/include</Value>
+      <Value>../src/FreeRTOS/Utilities</Value>
+      <Value>../src/FreeRTOS/Utilities/include</Value>
+      <Value>../src/FreeRTOS/FreeRTOS/Source/include</Value>
+      <Value>../src/FreeRTOS/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1</Value>
+      <Value>../src/tasks/include</Value>
+      <Value>../src/app/include</Value>
+    </ListValues>
+  </armgcc.compiler.directories.IncludePaths>
+  <armgcc.compiler.optimization.level>Optimize (-O1)</armgcc.compiler.optimization.level>
+  <armgcc.compiler.optimization.OtherFlags>-fdata-sections</armgcc.compiler.optimization.OtherFlags>
+  <armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>True</armgcc.compiler.optimization.PrepareFunctionsForGarbageCollection>
+  <armgcc.compiler.optimization.DebugLevel>Maximum (-g3)</armgcc.compiler.optimization.DebugLevel>
+  <armgcc.compiler.warnings.AllWarnings>True</armgcc.compiler.warnings.AllWarnings>
+  <armgcc.compiler.miscellaneous.OtherFlags>-pipe -fno-strict-aliasing -Wall -Werror-implicit-function-declaration -Wpointer-arith -std=gnu99 -ffunction-sections -fdata-sections -Wchar-subscripts -Wcomment -Wformat=2 -Wimplicit-int -Wmain -Wparentheses -Wsequence-point -Wreturn-type -Wswitch -Wunused -Wuninitialized -Wshadow -Wwrite-strings -Wsign-compare -Wmissing-declarations -Wformat -Wunreachable-code --param max-inline-insns-single=500 -mfloat-abi=softfp -mfpu=fpv5-sp-d16</armgcc.compiler.miscellaneous.OtherFlags>
+  <armgcc.linker.libraries.Libraries>
+    <ListValues>
+      <Value>libarm_cortexM7lfsp_math_softfp</Value>
+      <Value>libm</Value>
+    </ListValues>
+  </armgcc.linker.libraries.Libraries>
+  <armgcc.linker.libraries.LibrarySearchPaths>
+    <ListValues>
+      <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+    </ListValues>
+  </armgcc.linker.libraries.LibrarySearchPaths>
+  <armgcc.linker.optimization.GarbageCollectUnusedSections>True</armgcc.linker.optimization.GarbageCollectUnusedSections>
+  <armgcc.linker.memorysettings.ExternalRAM />
+  <armgcc.linker.miscellaneous.LinkerFlags>-Wl,--entry=Reset_Handler -Wl,--cref -mthumb -T../src/ASF/sam/utils/linker_scripts/same70/same70q21/gcc/flash.ld</armgcc.linker.miscellaneous.LinkerFlags>
+  <armgcc.assembler.general.IncludePaths>
+    <ListValues>
+      <Value>../src/ASF/sam/drivers/pmc</Value>
+      <Value>../src/ASF/sam/utils</Value>
+      <Value>../src/ASF/sam/utils/header_files</Value>
+      <Value>../src/ASF/sam/utils/preprocessor</Value>
+      <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
+      <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+      <Value>../src/ASF/sam/utils/fpu</Value>
+      <Value>../src/ASF/common/utils</Value>
+      <Value>../src/ASF/sam/utils/cmsis/same70/include</Value>
+      <Value>../src/ASF/sam/utils/cmsis/same70/source/templates</Value>
+      <Value>../src/ASF/sam/drivers/pio</Value>
+      <Value>../src/ASF/common/services/ioport</Value>
+      <Value>../src/ASF/common/services/clock</Value>
+      <Value>../src/ASF/common/utils/stdio/stdio_serial</Value>
+      <Value>../src/ASF/common/services/serial/sam_uart</Value>
+      <Value>../src/ASF/common/services/serial</Value>
+      <Value>../src/ASF/sam/drivers/uart</Value>
+      <Value>../src/ASF/sam/drivers/usart</Value>
+      <Value>../src/ASF/sam/boards/same70_xplained</Value>
+      <Value>../src/ASF/sam/boards</Value>
+      <Value>../src/ASF/common/boards</Value>
+      <Value>../src/ASF/common/services/gpio</Value>
+      <Value>../src/ASF/sam/drivers/mpu</Value>
+      <Value>../src/ASF/sam/drivers/matrix</Value>
+      <Value>../src</Value>
+      <Value>../src/config</Value>
+      <Value>../src/FreeRTOS/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1</Value>
+      <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/portable/NetworkInterface/DriverSAM</Value>
+      <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/portable/NetworkInterface/include</Value>
+      <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/portable/Compiler/GCC</Value>
+      <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/protocols/include</Value>
+      <Value>../src/FreeRTOS/FreeRTOS-Plus-TCP/include</Value>
+      <Value>../src/FreeRTOS/Utilities</Value>
+      <Value>../src/FreeRTOS/Utilities/include</Value>
+      <Value>../src/FreeRTOS/FreeRTOS/Source/include</Value>
+    </ListValues>
+  </armgcc.assembler.general.IncludePaths>
+  <armgcc.assembler.debugging.DebugLevel>Default (-g)</armgcc.assembler.debugging.DebugLevel>
+  <armgcc.preprocessingassembler.general.AssemblerFlags>-DARM_MATH_CM7=true -DBOARD=SAME70_XPLAINED -D__SAME70Q21B__ -Dprintf=iprintf -Dscanf=iscanf</armgcc.preprocessingassembler.general.AssemblerFlags>
+  <armgcc.preprocessingassembler.general.IncludePaths>
+    <ListValues>
+      <Value>../src/ASF/sam/drivers/pmc</Value>
+      <Value>../src/ASF/sam/utils</Value>
+      <Value>../src/ASF/sam/utils/header_files</Value>
+      <Value>../src/ASF/sam/utils/preprocessor</Value>
+      <Value>../src/ASF/thirdparty/CMSIS/Include</Value>
+      <Value>../src/ASF/thirdparty/CMSIS/Lib/GCC</Value>
+      <Value>../src/ASF/sam/utils/fpu</Value>
+      <Value>../src/ASF/common/utils</Value>
+      <Value>../src/ASF/sam/utils/cmsis/same70/include</Value>
+      <Value>../src/ASF/sam/utils/cmsis/same70/source/templates</Value>
+      <Value>../src/ASF/sam/drivers/pio</Value>
+      <Value>../src/ASF/common/services/ioport</Value>
+      <Value>../src/ASF/common/services/clock</Value>
+      <Value>../src/ASF/common/utils/stdio/stdio_serial</Value>
+      <Value>../src/ASF/common/services/serial/sam_uart</Value>
+      <Value>../src/ASF/common/services/serial</Value>
+      <Value>../src/ASF/sam/drivers/uart</Value>
+      <Value>../src/ASF/sam/drivers/usart</Value>
+      <Value>../src/ASF/sam/boards/same70_xplained</Value>
+      <Value>../src/ASF/sam/boards</Value>
+      <Value>../src/ASF/common/boards</Value>
+      <Value>../src/ASF/common/services/gpio</Value>
+      <Value>../src/ASF/sam/drivers/mpu</Value>
+      <Value>../src/ASF/sam/drivers/matrix</Value>
+      <Value>../src</Value>
+      <Value>../src/config</Value>
+    </ListValues>
+  </armgcc.preprocessingassembler.general.IncludePaths>
+  <armgcc.preprocessingassembler.debugging.DebugLevel>Default (-Wa,-g)</armgcc.preprocessingassembler.debugging.DebugLevel>
+</ArmGcc>
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
@@ -625,8 +625,8 @@
     <Folder Include="src\FreeRTOS\" />
     <Folder Include="src\FreeRTOS\FreeRTOS" />
     <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\" />
-    <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\" />
     <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\" />
+    <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\" />
     <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\portable\" />
     <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\portable\BufferManagement\" />
     <Folder Include="src\FreeRTOS\FreeRTOS-Plus-TCP\portable\Compiler\" />
@@ -646,6 +646,123 @@
     <Folder Include="src\FreeRTOS\FreeRTOS\Source\portable\MemMang\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\FreeRTOS_DNS_Cache.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\FreeRTOS_DNS_Callback.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\FreeRTOS_DNS_Networking.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\FreeRTOS_DNS_Parser.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\FreeRTOS_ICMP.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\FreeRTOS_IP_Timers.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\FreeRTOS_IP_Utils.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\FreeRTOS_TCP_Reception.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\FreeRTOS_TCP_State_Handling.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\FreeRTOS_TCP_Transmission.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\FreeRTOS_TCP_Utils.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\FreeRTOS_Tiny_TCP.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOSIPConfigDefaults.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_ARP.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_DHCP.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_DNS.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_DNS_Cache.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_DNS_Callback.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_DNS_Globals.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_DNS_Networking.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_DNS_Parser.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_errno_TCP.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_ICMP.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_IP.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_IP_Private.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_IP_Timers.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_IP_Utils.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_Sockets.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_Stream_Buffer.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_TCP_IP.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_TCP_Reception.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_TCP_State_Handling.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_TCP_Transmission.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_TCP_Utils.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_TCP_WIN.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_UDP_IP.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\IPTraceMacroDefaults.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\NetworkBufferManagement.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\NetworkInterface.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\FreeRTOS\FreeRTOS\Source\croutine.c">
       <SubType>compile</SubType>
     </Compile>
@@ -1346,51 +1463,6 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\config\FreeRTOSIPConfig.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOSIPConfigDefaults.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_ARP.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_DHCP.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_DNS.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_errno_TCP.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_IP.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_IP_Private.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_Sockets.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_Stream_Buffer.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_TCP_IP.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_TCP_WIN.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\FreeRTOS_UDP_IP.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\IPTraceMacroDefaults.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\NetworkBufferManagement.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\include\NetworkInterface.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\FreeRTOS\FreeRTOS-Plus-TCP\FreeRTOS_ARP.c">

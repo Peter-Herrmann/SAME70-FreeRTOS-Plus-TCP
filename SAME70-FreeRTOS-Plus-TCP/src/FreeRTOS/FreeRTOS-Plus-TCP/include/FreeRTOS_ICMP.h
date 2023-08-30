@@ -25,8 +25,13 @@
  * http://www.FreeRTOS.org
  */
 
-#ifndef NETWORK_INTERFACE_H
-#define NETWORK_INTERFACE_H
+/**
+ * @file FreeRTOS_ICMP.h
+ * @brief Header file for Internet Control Message Protocol for the FreeRTOS+TCP network stack.
+ */
+
+#ifndef FREERTOS_ICMP_H
+#define FREERTOS_ICMP_H
 
 /* *INDENT-OFF* */
 #ifdef __cplusplus
@@ -34,16 +39,39 @@
 #endif
 /* *INDENT-ON* */
 
-/* INTERNAL API FUNCTIONS. */
-BaseType_t xNetworkInterfaceInitialise( void );
-BaseType_t xNetworkInterfaceOutput( NetworkBufferDescriptor_t * const pxNetworkBuffer,
-                                    BaseType_t xReleaseAfterSend );
+/* Standard includes. */
+#include <stdint.h>
+#include <stdio.h>
+#include <string.h>
 
-/* The following function is defined only when BufferAllocation_1.c is linked in the project. */
-void vNetworkInterfaceAllocateRAMToBuffers( NetworkBufferDescriptor_t pxNetworkBuffers[ ipconfigNUM_NETWORK_BUFFER_DESCRIPTORS ] );
+/* FreeRTOS includes. */
+#include "FreeRTOS.h"
+#include "task.h"
+#include "queue.h"
+#include "semphr.h"
 
-/* The following function is defined only when BufferAllocation_1.c is linked in the project. */
-BaseType_t xGetPhyLinkStatus( void );
+/* FreeRTOS+TCP includes. */
+#include "FreeRTOS_IP.h"
+#include "FreeRTOS_Sockets.h"
+#include "FreeRTOS_IP_Private.h"
+#include "FreeRTOS_ARP.h"
+#include "FreeRTOS_UDP_IP.h"
+#include "FreeRTOS_DHCP.h"
+#include "NetworkInterface.h"
+#include "NetworkBufferManagement.h"
+#include "FreeRTOS_DNS.h"
+
+/* ICMP protocol definitions. */
+#define ipICMP_ECHO_REQUEST    ( ( uint8_t ) 8 )              /**< ICMP echo request. */
+#define ipICMP_ECHO_REPLY      ( ( uint8_t ) 0 )              /**< ICMP echo reply. */
+
+#if ( ipconfigREPLY_TO_INCOMING_PINGS == 1 ) || ( ipconfigSUPPORT_OUTGOING_PINGS == 1 )
+
+/*
+ * Process incoming ICMP packets.
+ */
+    eFrameProcessingResult_t ProcessICMPPacket( const NetworkBufferDescriptor_t * const pxNetworkBuffer );
+#endif /* ( ipconfigREPLY_TO_INCOMING_PINGS == 1 ) || ( ipconfigSUPPORT_OUTGOING_PINGS == 1 ) */
 
 /* *INDENT-OFF* */
 #ifdef __cplusplus
@@ -51,4 +79,4 @@ BaseType_t xGetPhyLinkStatus( void );
 #endif
 /* *INDENT-ON* */
 
-#endif /* NETWORK_INTERFACE_H */
+#endif /* FREERTOS_ICMP_H */

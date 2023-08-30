@@ -21,34 +21,36 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
- * http://aws.amazon.com/freertos
- * http://www.FreeRTOS.org
+ * https://github.com/FreeRTOS
+ * https://www.FreeRTOS.org
  */
 
-#ifndef NETWORK_INTERFACE_H
-#define NETWORK_INTERFACE_H
+#ifndef FREERTOS_DNS_CACHE_H
+#define FREERTOS_DNS_CACHE_H
 
-/* *INDENT-OFF* */
-#ifdef __cplusplus
-    extern "C" {
-#endif
-/* *INDENT-ON* */
+/* FreeRTOS includes. */
+#include "FreeRTOS.h"
 
-/* INTERNAL API FUNCTIONS. */
-BaseType_t xNetworkInterfaceInitialise( void );
-BaseType_t xNetworkInterfaceOutput( NetworkBufferDescriptor_t * const pxNetworkBuffer,
-                                    BaseType_t xReleaseAfterSend );
+/* FreeRTOS+TCP includes. */
+#include "FreeRTOS_IP.h"
 
-/* The following function is defined only when BufferAllocation_1.c is linked in the project. */
-void vNetworkInterfaceAllocateRAMToBuffers( NetworkBufferDescriptor_t pxNetworkBuffers[ ipconfigNUM_NETWORK_BUFFER_DESCRIPTORS ] );
+/* Standard includes. */
+#include <stdint.h>
 
-/* The following function is defined only when BufferAllocation_1.c is linked in the project. */
-BaseType_t xGetPhyLinkStatus( void );
+#if ( ( ipconfigUSE_DNS_CACHE == 1 ) && ( ipconfigUSE_DNS != 0 ) )
 
-/* *INDENT-OFF* */
-#ifdef __cplusplus
-    } /* extern "C" */
-#endif
-/* *INDENT-ON* */
+    uint32_t FreeRTOS_dnslookup( const char * pcHostName );
 
-#endif /* NETWORK_INTERFACE_H */
+    void FreeRTOS_dnsclear( void );
+
+    BaseType_t FreeRTOS_dns_update( const char * pcName,
+                                    uint32_t * pulIP,
+                                    uint32_t ulTTL );
+
+    BaseType_t FreeRTOS_ProcessDNSCache( const char * pcName,
+                                         uint32_t * pulIP,
+                                         uint32_t ulTTL,
+                                         BaseType_t xLookUp );
+#endif /* if ( ipconfigUSE_DNS_CACHE == 1 ) */
+
+#endif /* ifndef FREERTOS_DNS_CACHE_H */

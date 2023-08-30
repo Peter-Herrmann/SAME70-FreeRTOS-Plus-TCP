@@ -54,6 +54,10 @@ uint32_t ulApplicationGetNextSequenceNumber( uint32_t ulSourceAddress,
     return uxRand();
 }
 
+BaseType_t xApplicationGetRandomNumber( uint32_t * pulNumber )
+{
+    return (BaseType_t) uxRand();
+}
 
 void vApplicationIPNetworkEventHook( eIPCallbackEvent_t eNetworkEvent )
 {

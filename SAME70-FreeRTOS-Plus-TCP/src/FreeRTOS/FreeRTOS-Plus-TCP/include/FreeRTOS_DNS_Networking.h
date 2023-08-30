@@ -21,34 +21,31 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
- * http://aws.amazon.com/freertos
- * http://www.FreeRTOS.org
+ * https://github.com/FreeRTOS
+ * https://www.FreeRTOS.org
  */
+#ifndef FREERTOS_DNS_NETWORKING_H
+#define FREERTOS_DNS_NETWORKING_H
 
-#ifndef NETWORK_INTERFACE_H
-#define NETWORK_INTERFACE_H
+#include "FreeRTOS_Sockets.h"
+#include "FreeRTOS_DNS_Globals.h"
 
-/* *INDENT-OFF* */
-#ifdef __cplusplus
-    extern "C" {
-#endif
-/* *INDENT-ON* */
+#if ( ipconfigUSE_DNS != 0 )
 
-/* INTERNAL API FUNCTIONS. */
-BaseType_t xNetworkInterfaceInitialise( void );
-BaseType_t xNetworkInterfaceOutput( NetworkBufferDescriptor_t * const pxNetworkBuffer,
-                                    BaseType_t xReleaseAfterSend );
+/*
+ * Create a socket and bind it to the standard DNS port number.  Return the
+ * the created socket - or NULL if the socket could not be created or bound.
+ */
+    Socket_t DNS_CreateSocket( TickType_t uxReadTimeOut_ticks );
 
-/* The following function is defined only when BufferAllocation_1.c is linked in the project. */
-void vNetworkInterfaceAllocateRAMToBuffers( NetworkBufferDescriptor_t pxNetworkBuffers[ ipconfigNUM_NETWORK_BUFFER_DESCRIPTORS ] );
+    BaseType_t DNS_SendRequest( Socket_t xDNSSocket,
+                                const struct freertos_sockaddr * xAddress,
+                                const struct xDNSBuffer * pxDNSBuf );
 
-/* The following function is defined only when BufferAllocation_1.c is linked in the project. */
-BaseType_t xGetPhyLinkStatus( void );
+    void DNS_ReadReply( const ConstSocket_t xDNSSocket,
+                        struct freertos_sockaddr * xAddress,
+                        struct xDNSBuffer * pxReceiveBuffer );
 
-/* *INDENT-OFF* */
-#ifdef __cplusplus
-    } /* extern "C" */
-#endif
-/* *INDENT-ON* */
-
-#endif /* NETWORK_INTERFACE_H */
+    void DNS_CloseSocket( Socket_t xDNSSocket );
+#endif /* if ( ipconfigUSE_DNS != 0 ) */
+#endif /* ifndef FREERTOS_DNS_NETWORKING_H */
