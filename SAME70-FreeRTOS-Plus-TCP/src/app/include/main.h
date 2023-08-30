@@ -1,5 +1,5 @@
 /*****************************************************************************\
- * main.h: Includes and declarations for he application scope                *
+ * main.h: Includes and declarations for the application scope                *
  *  Author: Peter Herrmann                                                   *
 \*****************************************************************************/
 
@@ -52,18 +52,11 @@
 #include "conf_board.h"
 #include "conf_clock.h"
 
-#define mainHOST_NAME               "SAME70"
+#define mainHOST_NAME BOARD_NAME
 
 
 void vSeedRand( UBaseType_t ulSeed );
-static void vEthernetInit( void );
-static void configure_console(void);
 
-extern void vApplicationStackOverflowHook(xTaskHandle *pxTask, signed char *pcTaskName);
-extern void vApplicationIdleHook(void);
-extern void vApplicationTickHook(void);
-extern void vApplicationMallocFailedHook(void);
-extern void xPortSysTickHandler(void);
 
 
 #endif /* MAIN_H_ */

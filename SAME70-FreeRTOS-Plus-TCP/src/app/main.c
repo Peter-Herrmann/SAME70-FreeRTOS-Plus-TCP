@@ -8,6 +8,8 @@
 #include "main.h"
 #include "LED_task.h"
 
+static void vEthernetInit( void );
+static void configure_console(void);
 
 /* Default ipconfig. If DHCP is enabled, this will be overwritten. */
 static const uint8_t ucIPAddress[ 4 ] = {configIP_ADDR0, 
