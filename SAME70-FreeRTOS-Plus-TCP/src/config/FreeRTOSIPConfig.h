@@ -53,11 +53,6 @@ be handled by the TCP/IP stack. */
 #define ipconfigDRIVER_INCLUDED_TX_IP_CHECKSUM		( 1 )
 #define ipconfigDRIVER_INCLUDED_RX_IP_CHECKSUM		( 1 )
 
-	/*
-	 * Note: tha SAM4E does have RX checksum offloading
-	 * but TX checksum offloading has NOT been implemented.
-	 */
-
 #define ipconfigHAS_TX_CRC_OFFLOADING				( 0 )
 #define ipconfigHAS_RX_CRC_OFFLOADING				( 1 )
 
@@ -68,7 +63,7 @@ used as defaults. */
 #define ipconfigSOCK_DEFAULT_RECEIVE_BLOCK_TIME	( 5000 )
 #define	ipconfigSOCK_DEFAULT_SEND_BLOCK_TIME	( 5000 )
 
-#define ipconfigZERO_COPY_RX_DRIVER			( 0 )
+#define ipconfigZERO_COPY_RX_DRIVER			( 1 )
 #define ipconfigZERO_COPY_TX_DRIVER			( 1 )
 
 /* Include support for LLMNR: Link-local Multicast Name Resolution
