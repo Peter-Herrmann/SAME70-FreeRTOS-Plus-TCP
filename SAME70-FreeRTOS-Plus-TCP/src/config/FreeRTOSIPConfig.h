@@ -11,7 +11,7 @@ extern "C" {
 #endif
 
 #ifndef ipconfigIPv4_BACKWARD_COMPATIBLE 
-    #define ipconfigIPv4_BACKWARD_COMPATIBLE (1)
+    #define ipconfigIPv4_BACKWARD_COMPATIBLE (0)
 #endif
 
 #ifndef NETWORK_BUFFERS_CACHED

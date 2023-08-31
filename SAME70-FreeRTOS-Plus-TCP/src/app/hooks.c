@@ -69,10 +69,11 @@ BaseType_t xApplicationGetRandomNumber( uint32_t * pulNumber )
 }
 
 
-void vApplicationIPNetworkEventHook( eIPCallbackEvent_t eNetworkEvent )
+void vApplicationIPNetworkEventHook_Multi(eIPCallbackEvent_t eNetworkEvent,  
+                                          struct xNetworkEndPoint *pxEndPoint)
 {
-    uint32_t ulIPAddress, ulNetMask, ulGatewayAddress, ulDNSServerAddress;
-    char cBuffer[ 16 ];
+    // uint32_t ulIPAddress, ulNetMask, ulGatewayAddress, ulDNSServerAddress;
+    // char cBuffer[ 16 ];
     static BaseType_t xTasksAlreadyCreated = pdFALSE;
 
     FreeRTOS_printf( ( "vApplicationIPNetworkEventHook: event %ld\n", eNetworkEvent ) );
@@ -88,28 +89,36 @@ void vApplicationIPNetworkEventHook( eIPCallbackEvent_t eNetworkEvent )
         }
 
         /* Print ipconfig to console */
-        FreeRTOS_GetAddressConfiguration( &ulIPAddress, &ulNetMask, &ulGatewayAddress, &ulDNSServerAddress );
-        FreeRTOS_inet_ntoa( ulIPAddress, cBuffer );
-        printf("\r\n\nIP Address:         ");
-        printf("%s", cBuffer);
+        // FreeRTOS_GetAddressConfiguration( &ulIPAddress, &ulNetMask, &ulGatewayAddress, &ulDNSServerAddress );
+        // FreeRTOS_inet_ntoa( ulIPAddress, cBuffer );
+        // printf("\r\n\nIP Address:         ");
+        // printf("%s", cBuffer);
 
-        FreeRTOS_inet_ntoa( ulNetMask, cBuffer );
-        printf("\r\nSubnet Mask:        ");
-        printf("%s", cBuffer);
+        // FreeRTOS_inet_ntoa( ulNetMask, cBuffer );
+        // printf("\r\nSubnet Mask:        ");
+        // printf("%s", cBuffer);
 
-        FreeRTOS_inet_ntoa( ulGatewayAddress, cBuffer );
-        printf("\r\nGateway Address:    ");
-        printf("%s", cBuffer);
+        // FreeRTOS_inet_ntoa( ulGatewayAddress, cBuffer );
+        // printf("\r\nGateway Address:    ");
+        // printf("%s", cBuffer);
 
-        FreeRTOS_inet_ntoa( ulDNSServerAddress, cBuffer );
-        printf("\r\nDNS Server Address: ");
-        printf("%s", cBuffer);
+        // FreeRTOS_inet_ntoa( ulDNSServerAddress, cBuffer );
+        // printf("\r\nDNS Server Address: ");
+        // printf("%s", cBuffer);
     }
 }
 
 
 BaseType_t xApplicationDNSQueryHook( const char *pcName )
 {
+    return strcmp(pcName, pcApplicationHostnameHook()) ? pdFAIL : pdPASS;
+}
+
+
+BaseType_t xApplicationDNSQueryHook_Multi(struct xNetworkEndPoint * pxEndPoint,
+                                          const char * pcName)
+{
+    /* DNS hooks can be handled differently for different network interfaces here */
     return strcmp(pcName, pcApplicationHostnameHook()) ? pdFAIL : pdPASS;
 }
 

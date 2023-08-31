@@ -1503,9 +1503,6 @@
     <Compile Include="src\app\hooks.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="src\app\include\asf.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="src\app\include\LED_task.h">
       <SubType>compile</SubType>
     </Compile>
