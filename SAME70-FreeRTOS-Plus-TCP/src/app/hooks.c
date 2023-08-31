@@ -6,7 +6,9 @@
 
 #include "main.h"
 
-static UBaseType_t ulNextRand;
+///////////////////////////////
+//// FreeRTOS Kernel Hooks ////
+///////////////////////////////
 
 extern void vApplicationStackOverflowHook(xTaskHandle *pxTask, signed char *pcTaskName)
 {
@@ -24,9 +26,11 @@ extern void vApplicationIdleHook(void) { /*  */ }
 extern void vApplicationTickHook(void) { /*  */ }
 
 
-//////////////////////////////
-//// FreeRTOS + TCP Hooks ////
-//////////////////////////////
+///////////////////////////////
+//// Random Number Utility ////
+///////////////////////////////
+
+static UBaseType_t ulNextRand;
 
 /* Generate psuedo-random number. Must be seeded first with vSeedRand(). */
 UBaseType_t uxRand( void )
@@ -41,9 +45,13 @@ UBaseType_t uxRand( void )
 /* Set the seed for use with uxRand() */
 void vSeedRand( UBaseType_t ulSeed )
 {
-    /* Utility function to seed the pseudo random number generator. */
     ulNextRand = ulSeed;
 }
+
+
+//////////////////////////////
+//// FreeRTOS + TCP Hooks ////
+//////////////////////////////
 
 
 uint32_t ulApplicationGetNextSequenceNumber( uint32_t ulSourceAddress,
@@ -54,10 +62,12 @@ uint32_t ulApplicationGetNextSequenceNumber( uint32_t ulSourceAddress,
     return uxRand();
 }
 
+
 BaseType_t xApplicationGetRandomNumber( uint32_t * pulNumber )
 {
     return (BaseType_t) uxRand();
 }
+
 
 void vApplicationIPNetworkEventHook( eIPCallbackEvent_t eNetworkEvent )
 {
@@ -70,13 +80,14 @@ void vApplicationIPNetworkEventHook( eIPCallbackEvent_t eNetworkEvent )
     /* If the network has just come up...*/
     if( eNetworkEvent == eNetworkUp )
     {
-        /* Create the tasks that use the IP stack if they have not already been
-        created. */
+        
         if( xTasksAlreadyCreated == pdFALSE )
         {
+            /* Create tasks dependent on NetworkUp here */
             xTasksAlreadyCreated = pdTRUE;
         }
 
+        /* Print ipconfig to console */
         FreeRTOS_GetAddressConfiguration( &ulIPAddress, &ulNetMask, &ulGatewayAddress, &ulDNSServerAddress );
         FreeRTOS_inet_ntoa( ulIPAddress, cBuffer );
         printf("\r\n\nIP Address:         ");

@@ -68,9 +68,6 @@
 // From module: Interrupt management - SAM implementation
 #include <interrupt.h>
 
-// From module: MATRIX - Bus Matrix
-#include <matrix.h>
-
 // From module: MPU - Memory Protect Unit
 #include <mpu.h>
 
