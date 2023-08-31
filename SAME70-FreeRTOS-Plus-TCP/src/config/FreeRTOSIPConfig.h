@@ -10,6 +10,10 @@
 extern "C" {
 #endif
 
+#ifndef ipconfigIPv4_BACKWARD_COMPATIBLE 
+    #define ipconfigIPv4_BACKWARD_COMPATIBLE (1)
+#endif
+
 #ifndef NETWORK_BUFFERS_CACHED
 	#define NETWORK_BUFFERS_CACHED (0)
 #endif
