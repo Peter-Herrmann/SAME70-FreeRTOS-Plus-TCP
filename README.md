@@ -6,7 +6,7 @@ This repository provides a minimal example to get started with FreeRTOS+TCP on t
 
 There are two release versions of this example. The latest available versions are one release, and the latest Long Term Support (LTS) version is another.
 
-| Component       | LTS Release | Latest Release |
+| Component       | [LTS Release](https://github.com/Peter-Herrmann/SAME70-FreeRTOS-Plus-TCP/tree/release/lts) | [Latest Release](https://github.com/Peter-Herrmann/SAME70-FreeRTOS-Plus-TCP/tree/release/latest) |
 |-----------------|:-----------:|:--------------:|
 | FreeRTOS Kernel | 10.5.1      | 10.6.1         |
 | FreeRTOS+TCP    | 3.1.0       | 4.0.0          |
