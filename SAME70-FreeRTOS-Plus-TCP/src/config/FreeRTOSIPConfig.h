@@ -10,6 +10,10 @@
 extern "C" {
 #endif
 
+#ifndef ipconfigPORT_SUPPRESS_WARNING
+	#define ipconfigPORT_SUPPRESS_WARNING (1)
+#endif
+
 #ifndef ipconfigIPv4_BACKWARD_COMPATIBLE 
     #define ipconfigIPv4_BACKWARD_COMPATIBLE (0)
 #endif
