@@ -53,6 +53,7 @@
 /* This file is included to see if 'CONF_BOARD_ENABLE_CACHE' is defined. */
 #include "conf_board.h"
 
+void returnTxBuffer( uint8_t * puc_buffer );
 
 /* Interrupt events to process.  Currently only the Rx event is processed
  * although code for other events is included to allow for possible future
@@ -423,8 +424,6 @@ static BaseType_t xPHY_Write( BaseType_t xAddress,
 
 BaseType_t xNetworkInterfaceInitialise( void )
 {
-    const TickType_t x5_Seconds = 5000UL;
-
     if( xEMACTaskHandle == NULL )
     {
         prvGMACInit();
@@ -573,8 +572,6 @@ BaseType_t xNetworkInterfaceOutput( NetworkBufferDescriptor_t * const pxDescript
 
 static BaseType_t prvGMACInit( void )
 {
-    uint32_t ncfgr;
-
     gmac_options_t gmac_option;
 
     gmac_enable_management( GMAC, true );
@@ -840,14 +837,12 @@ void vNetworkInterfaceAllocateRAMToBuffers( NetworkBufferDescriptor_t pxNetworkB
 static void prvEMACHandlerTask( void * pvParameters )
 {
     UBaseType_t uxCount;
-    UBaseType_t uxLowestSemCount = 0;
 
     #if ( ipconfigZERO_COPY_TX_DRIVER != 0 )
         NetworkBufferDescriptor_t * pxBuffer;
     #endif
     uint8_t * pucBuffer;
     BaseType_t xResult = 0;
-    uint32_t xStatus;
     const TickType_t ulMaxBlockTime = pdMS_TO_TICKS( EMAC_MAX_BLOCK_TIME_MS );
 
     /* Remove compiler warnings about unused parameters. */
@@ -861,6 +856,7 @@ static void prvEMACHandlerTask( void * pvParameters )
 
         #if ( ipconfigHAS_PRINTF != 0 )
             {
+                UBaseType_t uxLowestSemCount = 0;
                 /* Call a function that monitors resources: the amount of free network
                  * buffers and the amount of free space on the heap.  See FreeRTOS_IP.c
                  * for more detailed comments. */
