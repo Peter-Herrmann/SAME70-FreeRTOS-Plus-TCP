@@ -12,4 +12,4 @@ jobs:
     - name: Run Clang-Format
       uses: Peter-Herrmann/formatting/clang-format@main
       with:
-        directories: 'SAME70-FreeRTOS-Plus-TCP/src/app'
+        directories: './SAME70-FreeRTOS-Plus-TCP/src/app'
