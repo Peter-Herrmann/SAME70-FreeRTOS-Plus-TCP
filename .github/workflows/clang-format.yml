@@ -1,0 +1,15 @@
+name: Run Clang-Format
+
+on: [pull_request]
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Run Clang-Format
+      uses: Peter-Herrmann/formatting/clang-format@main
+      with:
+        directories: "./SAME70-FreeRTOS-Plus-TCP/src/app"
