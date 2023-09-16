@@ -1,5 +1,8 @@
 # SAME70-FreeRTOS-Plus-TCP Example
 
+[![GitHub license](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/Peter-Herrmann/SAME70-FreeRTOS-Plus-TCP/blob/main/LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/Peter-Herrmann/SAME70-FreeRTOS-Plus-TCP)](https://github.com/Peter-Herrmann/SAME70-FreeRTOS-Plus-TCP/issues)
+
 This repository provides a minimal example to get started with FreeRTOS+TCP on the SAME70 microcontroller. The project integrates the ASF (Advanced Software Framework) libraries generated in August 2023, and either the latest release version or the latest LTS version of the FreeRTOS kernel and FreeRTOS+TCP.
 
 ## 📔 Versions
