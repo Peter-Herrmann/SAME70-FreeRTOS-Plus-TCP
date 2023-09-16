@@ -8,7 +8,6 @@
 
 /* FreeRTOS Kernel */
 #include <FreeRTOS.h>
-#include <stack_macros.h>
 #include <croutine.h>
 #include <deprecated_definitions.h>
 #include <event_groups.h>
@@ -24,40 +23,39 @@
 #include <task.h>
 #include <timers.h>
 /* FreeRTOS Plus TCP */
+#include "FreeRTOS_ARP.h"
+#include "FreeRTOS_DHCP.h"
 #include "FreeRTOS_IP.h"
 #include "FreeRTOS_Sockets.h"
-#include "FreeRTOS_DHCP.h"
 #include "NetworkBufferManagement.h"
-#include "FreeRTOS_ARP.h"
 #include "NetworkInterface.h"
 #include "gmac_SAM.h"
-#if( ipconfigUSE_IPv6 != 0 )
+#if (ipconfigUSE_IPv6 != 0)
 #include "FreeRTOS_ND.h"
 #endif
-#if( USE_LOG_EVENT != 0 )
+#if (USE_LOG_EVENT != 0)
 #include "eventLogging.h"
 #endif
-#if( ipconfigMULTI_INTERFACE != 0 )
+#if (ipconfigMULTI_INTERFACE != 0)
 #include "FreeRTOS_Routing.h"
 #endif
 /* Standard Library */
-#include <stdio.h>
 #include <stdarg.h>
+#include <stdio.h>
 #include <string.h>
 /* ASF */
 #include "asf.h"
-#include "stdio_serial.h"
 #include "conf_board.h"
 #include "conf_clock.h"
-
+#include "stdio_serial.h"
 
 #define mainHOST_NAME BOARD_NAME
 
-
-void vSeedRand( UBaseType_t ulSeed );
+void vSeedRand(UBaseType_t ulSeed);
 
 /* FreeRTOS Kernel Hooks */
-extern void vApplicationStackOverflowHook(xTaskHandle *pxTask, signed char *pcTaskName);
+extern void vApplicationStackOverflowHook(xTaskHandle *pxTask,
+                                          signed char *pcTaskName);
 extern void vApplicationIdleHook(void);
 extern void vApplicationTickHook(void);
 extern void vApplicationMallocFailedHook(void);
@@ -65,10 +63,9 @@ extern void xPortSysTickHandler(void);
 
 /* FreeRTOS+TCP Library Hooks */
 extern BaseType_t xApplicationDNSQueryHook(const char *pcName);
-extern BaseType_t xApplicationGetRandomNumber( uint32_t * pulNumber );
-extern uint32_t ulApplicationGetNextSequenceNumber(uint32_t ulSourceAddress,
-                                                   uint16_t usSourcePort,
-                                                   uint32_t ulDestinationAddress,
-                                                   uint16_t usDestinationPort);
+extern BaseType_t xApplicationGetRandomNumber(uint32_t *pulNumber);
+extern uint32_t ulApplicationGetNextSequenceNumber(
+    uint32_t ulSourceAddress, uint16_t usSourcePort,
+    uint32_t ulDestinationAddress, uint16_t usDestinationPort);
 
 #endif /* MAIN_H_ */
